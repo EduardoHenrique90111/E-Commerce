@@ -82,10 +82,27 @@ Otimizações aplicadas: handler de passagem para recursos não-API no MSW, Axio
 renderização adiada (useDeferredValue) das listas, montagem inicial como transição, socket e painel
 de simulação carregados quando ocioso, filtros laterais só no desktop, correção de CLS no detalhe.
 
+## Ponto de retomada (sessão interrompida em 30/10, ~04h10)
+
+Feito nesta sessão (tudo commitado): otimizações de performance e CLS, baselines visuais atualizadas,
+E2E 114/116 ok (2 ignorados de propósito), `eslint.config.js`, `scripts/lighthouse.mjs` (cada medição
+em processo isolado, com timeout e nova tentativa) e configs versionadas em `lighthouse/`.
+`vercel.json` sem `installCommand` (a Vercel detecta o lockfile).
+
+Lint: verificado localmente só o núcleo do ESLint (regras recomendadas) + buscas dirigidas por
+padrões do typescript-eslint e do jsx-a11y — sem problemas. Os plugins não existem offline aqui.
+
 ## Próximos passos (na ordem)
 
-1. `scripts/lighthouse.mjs` + `lighthouse/config.{mobile,desktop}.mjs`; 3 medições por página/perfil,
-   medianas, relatórios HTML/JSON em `lighthouse/reports`, resumo com LCP/CLS/TBT, versões e ambiente.
-2. `eslint.config.js`; remover `autoFocus` do SearchBox (jsx-a11y/no-autofocus).
-3. README.md, ARCHITECTURE.md, docs/API.md, docs/GUIA-WINDOWS.md.
-4. Rodada final: typecheck, E2E, visual; commit; ZIP (sem node_modules/dist/test-results).
+1. Auditoria final: `/home/claude/localdev/lh-audit.sh` (≈10 min) com a máquina SEM outra carga
+   (typecheck/testes em paralelo inflam o TBT). Na última tentativa, início mobile ficou em 69–73
+   (TBT 488–695 ms) vs. 77–80 em medições avulsas — investigar a variação antes de fechar os números.
+   Depois escrever `lighthouse/README.md` com análise: LCP mobile = 1º card do catálogo (depende de
+   JS + MSW + API), ~270 KB br de JS da stack obrigatória + camada de mocks no navegador, throttling
+   simulado; métricas observadas sem throttling (FCP ≈ 0,5 s, LCP ≈ 1,0 s).
+2. Documentação: README.md (setup, variáveis, credenciais ana/bruno/carla — Kurio@123/456/789,
+   cupons KURIO10/LANCAMENTO/BOASVINDAS/EXPIRADO, cenários `?scenario=`/`&reset=1`/painel, comandos,
+   como reproduzir cada falha), docs/GUIA-WINDOWS.md, ARCHITECTURE.md (contratos, sessão, carrinho,
+   cache/retries, reconciliação REST↔Socket.IO, limitações do MSW, decisões de UX, desvios do layout,
+   pontos de extensão de segurança: `src/session/token-store.ts`, headers em `vercel.json`), docs/API.md.
+3. Rodada final: typecheck, E2E, visual; commit; ZIP (sem node_modules/dist/test-results) + envio.
