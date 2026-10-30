@@ -50,7 +50,7 @@ export function HomePage({ search, interactive = true }: Props) {
   return (
     <>
       <Hero />
-      <CatalogSection search={search} onChange={onChange} interactive={interactive} />
+      <CatalogSection search={search} onChange={onChange} />
       <LaunchBanners />
       <Journal />
     </>

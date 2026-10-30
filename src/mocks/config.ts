@@ -223,7 +223,7 @@ export function initConfig(params: { scenario: string | null; reset: boolean } =
   resetRequested: boolean
   scenarioFromUrl: boolean
 } {
-  let stored: Partial<MockConfig> | null = null
+  let stored: Partial<MockConfig> | null
   try {
     const raw = localStorage.getItem(CONFIG_KEY)
     stored = raw ? (JSON.parse(raw) as Partial<MockConfig>) : null

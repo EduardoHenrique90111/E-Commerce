@@ -72,7 +72,7 @@ export function createRealtimeHandler() {
     // Pacote CONNECT do Socket.IO ("40{...auth}") traz o token da sessão.
     connection.client.addEventListener('message', (event) => {
       if (typeof event.data !== 'string' || !event.data.startsWith('40')) return
-      let auth: { token?: string } = {}
+      let auth: { token?: string }
       try {
         auth = event.data.length > 2 ? (JSON.parse(event.data.slice(2)) as { token?: string }) : {}
       } catch {

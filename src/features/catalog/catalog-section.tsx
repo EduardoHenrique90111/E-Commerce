@@ -21,10 +21,9 @@ import { hasActiveFilters, toCatalogQuery, type CatalogSearch } from './search'
 interface Props {
   search: CatalogSearch
   onChange: (patch: Partial<CatalogSearch>, options?: { replace?: boolean }) => void
-  interactive?: boolean
 }
 
-function SearchBox({ value, onCommit, autoFocus }: { value: string; onCommit: (q: string | undefined) => void; autoFocus?: boolean }) {
+function SearchBox({ value, onCommit }: { value: string; onCommit: (q: string | undefined) => void }) {
   const [text, setText] = useState(value)
   const committed = useRef(value)
   const commitRef = useRef(onCommit)
@@ -64,7 +63,6 @@ function SearchBox({ value, onCommit, autoFocus }: { value: string; onCommit: (q
         onChange={(e) => setText(e.target.value)}
         className="h-9 pl-9 text-xs"
         autoComplete="off"
-        autoFocus={autoFocus}
         enterKeyHint="search"
       />
     </form>
@@ -134,7 +132,7 @@ function FeaturedSidebarCard() {
   )
 }
 
-export function CatalogSection({ search, onChange, interactive = true }: Props) {
+export function CatalogSection({ search, onChange }: Props) {
   const query = toCatalogQuery(search)
   const catalog = useCatalog(query)
   const [filtersOpen, setFiltersOpen] = useState(false)
@@ -196,7 +194,7 @@ export function CatalogSection({ search, onChange, interactive = true }: Props) 
               </div>
             </div>
             <div className="flex w-full flex-col gap-2 sm:flex-row sm:items-center md:w-auto">
-              <SearchBox value={search.q ?? ''} onCommit={(q) => onChange({ q, page: undefined })} autoFocus={interactive && !!search.focus} />
+              <SearchBox value={search.q ?? ''} onCommit={(q) => onChange({ q, page: undefined })} />
               <div className="flex flex-wrap items-center gap-2">
                 <Sheet open={filtersOpen} onOpenChange={setFiltersOpen}>
                   <SheetTrigger asChild>

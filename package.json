@@ -5,7 +5,7 @@
   "description": "Kurio — marketplace de NFTs (descoberta, compra e conta do colecionador) com API, sessão, carteiras, pagamentos e tempo real simulados via MSW.",
   "type": "module",
   "engines": {
-    "node": ">=20.19.0"
+    "node": ">=22.19.0"
   },
   "scripts": {
     "dev": "vite",
@@ -24,6 +24,8 @@
     "test:visual:update": "playwright test --project=visual-desktop --project=visual-mobile --update-snapshots",
     "test:report": "playwright show-report reports/playwright",
     "lighthouse": "node scripts/lighthouse.mjs",
+    "lighthouse:mobile": "node scripts/lighthouse.mjs --profiles=mobile",
+    "lighthouse:desktop": "node scripts/lighthouse.mjs --profiles=desktop",
     "assets:generate": "node scripts/generate-art.mjs",
     "icons:generate": "node scripts/generate-icons.mjs",
     "msw:init": "msw init public --save",
@@ -61,13 +63,13 @@
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "@vitejs/plugin-react": "^4.6.0",
-    "chrome-launcher": "^1.2.0",
+    "chrome-launcher": "^1.2.1",
     "eslint": "^9.30.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.3.0",
-    "lighthouse": "^12.8.0",
+    "lighthouse": "^13.4.0",
     "sharp": "^0.34.3",
     "tailwindcss": "^4.1.11",
     "typescript": "~5.9.2",

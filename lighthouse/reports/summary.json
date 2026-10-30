@@ -1,0 +1,119 @@
+{
+  "targets": {
+    "performance": 90,
+    "accessibility": 95,
+    "best-practices": 95,
+    "seo": 90
+  },
+  "environment": {
+    "date": "2026-10-30T07:05:17.988Z",
+    "lighthouse": "13.4.1",
+    "lighthousePackage": "13.4.0",
+    "chromeLauncher": "1.2.1",
+    "vite": "0.0.0-localshim",
+    "playwright": "1.63.0",
+    "browser": "Chrome/153.0.8010.12",
+    "hostUserAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+    "node": "v22.23.4",
+    "os": "Linux 6.18.44-fc-v185 (x64)",
+    "cpu": "Intel(R) Xeon(R) Processor @ 2.10GHz × 2",
+    "memoryGb": 8,
+    "benchmarkIndex": 2060,
+    "server": "URL externa",
+    "build": "teste",
+    "baseUrl": "http://localhost:4173",
+    "mocks": "cenário padrão (armazenamento vazio a cada medição)",
+    "cache": "frio (perfil de navegador novo a cada medição)",
+    "runsPerPage": 1
+  },
+  "groups": [
+    {
+      "profile": "mobile",
+      "page": "detalhe",
+      "pageName": "Detalhe do NFT",
+      "path": "/nft/emerald-ape-042",
+      "median": {
+        "performance": 64,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "medianMetrics": {
+        "FCP": 2223.04975,
+        "LCP": 3781.3272500000003,
+        "TBT": 515.5,
+        "CLS": 0,
+        "SI": 12918.911725904574
+      },
+      "representativeRun": 1,
+      "runs": [
+        {
+          "profile": "mobile",
+          "page": "detalhe",
+          "run": 1,
+          "scores": {
+            "performance": 64,
+            "accessibility": 100,
+            "best-practices": 100,
+            "seo": 100
+          },
+          "metrics": {
+            "FCP": 2223.04975,
+            "LCP": 3781.3272500000003,
+            "TBT": 515.5,
+            "CLS": 0,
+            "SI": 12918.911725904574
+          },
+          "files": {
+            "html": "lighthouse/reports/mobile/detalhe-run1.report.html",
+            "json": "lighthouse/reports/mobile/detalhe-run1.report.json"
+          }
+        }
+      ]
+    },
+    {
+      "profile": "desktop",
+      "page": "detalhe",
+      "pageName": "Detalhe do NFT",
+      "path": "/nft/emerald-ape-042",
+      "median": {
+        "performance": 99,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "medianMetrics": {
+        "FCP": 533.2074249999998,
+        "LCP": 926.6155249999995,
+        "TBT": 40.999999999999886,
+        "CLS": 0,
+        "SI": 786.7606679335183
+      },
+      "representativeRun": 1,
+      "runs": [
+        {
+          "profile": "desktop",
+          "page": "detalhe",
+          "run": 1,
+          "scores": {
+            "performance": 99,
+            "accessibility": 100,
+            "best-practices": 100,
+            "seo": 100
+          },
+          "metrics": {
+            "FCP": 533.2074249999998,
+            "LCP": 926.6155249999995,
+            "TBT": 40.999999999999886,
+            "CLS": 0,
+            "SI": 786.7606679335183
+          },
+          "files": {
+            "html": "lighthouse/reports/desktop/detalhe-run1.report.html",
+            "json": "lighthouse/reports/desktop/detalhe-run1.report.json"
+          }
+        }
+      ]
+    }
+  ]
+}
