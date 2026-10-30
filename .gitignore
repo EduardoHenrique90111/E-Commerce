@@ -1,0 +1,15 @@
+node_modules
+dist
+dist-ssr
+*.local
+.env.local
+.env.*.local
+reports/playwright
+test-results
+playwright/.cache
+lighthouse/.tmp
+*.tsbuildinfo
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+.idea

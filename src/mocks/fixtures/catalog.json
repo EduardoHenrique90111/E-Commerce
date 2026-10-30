@@ -1,0 +1,2341 @@
+[
+  {
+    "id": "emerald-ape-042",
+    "name": "Emerald Ape #042",
+    "collection": "arte-digital",
+    "network": "ethereum",
+    "creator": {
+      "name": "Marina Vieira",
+      "handle": "marinavieira"
+    },
+    "art": {
+      "species": "chimp",
+      "bg": "cream",
+      "outfit": "varsity",
+      "outfitColor": "green",
+      "headwear": "none",
+      "eyes": "sunglasses",
+      "mouth": "smile",
+      "accessory": "pendant"
+    },
+    "attributes": [
+      "Óculos escuros",
+      "Jaqueta college verde",
+      "Pingente"
+    ],
+    "rarity": "Lendária",
+    "description": "Emerald Ape #042 é uma obra digital 1/1 da coleção Arte digital criada por Marina Vieira. Cada edição fica registrada nos metadados do token e é verificada na rede Ethereum.",
+    "createdAt": "2026-01-01T12:00:00.000Z",
+    "sales": 90,
+    "rating": 4.2,
+    "reviewsCount": 36,
+    "badge": "hot",
+    "featured": true,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 1100000,
+        "supply": 111,
+        "available": 76
+      },
+      {
+        "id": "ouro",
+        "label": "Ouro",
+        "price": 2420000,
+        "supply": 25,
+        "available": 5
+      },
+      {
+        "id": "prova-do-artista",
+        "label": "Prova do artista",
+        "price": 6600000,
+        "supply": 2,
+        "available": 0
+      }
+    ]
+  },
+  {
+    "id": "sage-nomad-069",
+    "name": "Sage Nomad #069",
+    "collection": "fotografia",
+    "network": "polygon",
+    "creator": {
+      "name": "Studio Baobá",
+      "handle": "studiobaoba"
+    },
+    "art": {
+      "species": "gorilla",
+      "bg": "cream",
+      "outfit": "hoodie",
+      "outfitColor": "purple",
+      "headwear": "bucket",
+      "eyes": "open",
+      "mouth": "smirk",
+      "accessory": "none"
+    },
+    "attributes": [
+      "Olhar atento",
+      "Chapéu bucket",
+      "Moletom roxo"
+    ],
+    "rarity": "Comum",
+    "description": "Sage Nomad #069 é uma obra digital 1/1 da coleção Fotografia criada por Studio Baobá. Cada edição fica registrada nos metadados do token e é verificada na rede Polygon.",
+    "createdAt": "2026-06-12T12:00:00.000Z",
+    "sales": 233,
+    "rating": 4.3,
+    "reviewsCount": 47,
+    "badge": null,
+    "featured": true,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 1480000,
+        "supply": 133,
+        "available": 33
+      },
+      {
+        "id": "ouro",
+        "label": "Ouro",
+        "price": 3260000,
+        "supply": 13,
+        "available": 8
+      }
+    ]
+  },
+  {
+    "id": "onyx-mogul-102",
+    "name": "Onyx Mogul #102",
+    "collection": "arte-3d",
+    "network": "ethereum",
+    "creator": {
+      "name": "Teo Andrade",
+      "handle": "teoandrade"
+    },
+    "art": {
+      "species": "gorilla",
+      "bg": "mint",
+      "outfit": "blazer",
+      "outfitColor": "cream",
+      "headwear": "none",
+      "eyes": "open",
+      "mouth": "neutral",
+      "accessory": "none"
+    },
+    "attributes": [
+      "Olhar atento",
+      "Blazer creme"
+    ],
+    "rarity": "Comum",
+    "description": "Onyx Mogul #102 é uma obra digital 1/1 da coleção Arte 3D criada por Teo Andrade. Cada edição fica registrada nos metadados do token e é verificada na rede Ethereum.",
+    "createdAt": "2026-01-23T12:00:00.000Z",
+    "sales": 129,
+    "rating": 4.8,
+    "reviewsCount": 67,
+    "badge": null,
+    "featured": true,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 1980000,
+        "supply": 99,
+        "available": 53
+      }
+    ]
+  },
+  {
+    "id": "violet-nomad-014",
+    "name": "Violet Nomad #014",
+    "collection": "fotografia",
+    "network": "solana",
+    "creator": {
+      "name": "Coletivo Jabuti",
+      "handle": "coletivojabuti"
+    },
+    "art": {
+      "species": "silverback",
+      "bg": "cream",
+      "outfit": "hoodie",
+      "outfitColor": "purple",
+      "headwear": "bucket",
+      "eyes": "sleepy",
+      "mouth": "smile",
+      "accessory": "none"
+    },
+    "attributes": [
+      "Olhar sereno",
+      "Chapéu bucket",
+      "Moletom roxo"
+    ],
+    "rarity": "Incomum",
+    "description": "Violet Nomad #014 é uma obra digital 1/1 da coleção Fotografia criada por Coletivo Jabuti. Cada edição fica registrada nos metadados do token e é verificada na rede Solana.",
+    "createdAt": "2026-06-06T12:00:00.000Z",
+    "sales": 311,
+    "rating": 4.5,
+    "reviewsCount": 60,
+    "badge": "novo",
+    "featured": true,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 1200000,
+        "supply": 194,
+        "available": 137
+      },
+      {
+        "id": "ouro",
+        "label": "Ouro",
+        "price": 2640000,
+        "supply": 15,
+        "available": 8
+      }
+    ]
+  },
+  {
+    "id": "ivory-baron-088",
+    "name": "Ivory Baron #088",
+    "collection": "colecionaveis",
+    "network": "ethereum",
+    "creator": {
+      "name": "Lia Okafor",
+      "handle": "liaokafor"
+    },
+    "art": {
+      "species": "gorilla",
+      "bg": "sage",
+      "outfit": "blazer",
+      "outfitColor": "black",
+      "headwear": "none",
+      "eyes": "round-glasses",
+      "mouth": "neutral",
+      "accessory": "none"
+    },
+    "attributes": [
+      "Óculos redondos",
+      "Blazer preto"
+    ],
+    "rarity": "Rara",
+    "description": "Ivory Baron #088 é uma obra digital 1/1 da coleção Colecionáveis criada por Lia Okafor. Cada edição fica registrada nos metadados do token e é verificada na rede Ethereum.",
+    "createdAt": "2026-01-17T12:00:00.000Z",
+    "sales": 124,
+    "rating": 4.4,
+    "reviewsCount": 69,
+    "badge": null,
+    "featured": false,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 1790000,
+        "supply": 44,
+        "available": 12
+      },
+      {
+        "id": "ouro",
+        "label": "Ouro",
+        "price": 3940000,
+        "supply": 16,
+        "available": 2
+      },
+      {
+        "id": "prova-do-artista",
+        "label": "Prova do artista",
+        "price": 10740000,
+        "supply": 2,
+        "available": 1
+      }
+    ]
+  },
+  {
+    "id": "golden-beat-207",
+    "name": "Golden Beat #207",
+    "collection": "musica",
+    "network": "polygon",
+    "creator": {
+      "name": "Rafa Nakamura",
+      "handle": "rafanakamura"
+    },
+    "art": {
+      "species": "orangutan",
+      "bg": "cream",
+      "outfit": "bomber",
+      "outfitColor": "cream",
+      "headwear": "headphones",
+      "eyes": "open",
+      "mouth": "grin",
+      "accessory": "none"
+    },
+    "attributes": [
+      "Olhar atento",
+      "Fone de ouvido",
+      "Jaqueta bomber creme"
+    ],
+    "rarity": "Comum",
+    "description": "Golden Beat #207 é uma obra digital 1/1 da coleção Música criada por Rafa Nakamura. Cada edição fica registrada nos metadados do token e é verificada na rede Polygon.",
+    "createdAt": "2026-06-28T12:00:00.000Z",
+    "sales": 288,
+    "rating": 4.5,
+    "reviewsCount": 13,
+    "badge": null,
+    "featured": false,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 990000,
+        "supply": 171,
+        "available": 33
+      }
+    ]
+  },
+  {
+    "id": "golden-signal-198",
+    "name": "Golden Signal #198",
+    "collection": "musica",
+    "network": "ethereum",
+    "creator": {
+      "name": "Marina Vieira",
+      "handle": "marinavieira"
+    },
+    "art": {
+      "species": "orangutan",
+      "bg": "mint",
+      "outfit": "bomber",
+      "outfitColor": "cream",
+      "headwear": "headphones",
+      "eyes": "sleepy",
+      "mouth": "smile",
+      "accessory": "chain"
+    },
+    "attributes": [
+      "Olhar sereno",
+      "Fone de ouvido",
+      "Jaqueta bomber creme",
+      "Corrente"
+    ],
+    "rarity": "Incomum",
+    "description": "Golden Signal #198 é uma obra digital 1/1 da coleção Música criada por Marina Vieira. Cada edição fica registrada nos metadados do token e é verificada na rede Ethereum.",
+    "createdAt": "2026-01-11T12:00:00.000Z",
+    "sales": 435,
+    "rating": 4.4,
+    "reviewsCount": 36,
+    "badge": null,
+    "featured": false,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 890000,
+        "supply": 87,
+        "available": 14
+      },
+      {
+        "id": "ouro",
+        "label": "Ouro",
+        "price": 1960000,
+        "supply": 15,
+        "available": 4
+      }
+    ]
+  },
+  {
+    "id": "saffron-pilot-928",
+    "name": "Saffron Pilot #928",
+    "collection": "ilustracoes",
+    "network": "solana",
+    "creator": {
+      "name": "Studio Baobá",
+      "handle": "studiobaoba"
+    },
+    "art": {
+      "species": "gorilla",
+      "bg": "sand",
+      "outfit": "tee",
+      "outfitColor": "green",
+      "headwear": "none",
+      "eyes": "round-glasses",
+      "mouth": "grin",
+      "accessory": "pendant"
+    },
+    "attributes": [
+      "Óculos redondos",
+      "Camiseta verde",
+      "Pingente"
+    ],
+    "rarity": "Comum",
+    "description": "Saffron Pilot #928 é uma obra digital 1/1 da coleção Ilustrações criada por Studio Baobá. Cada edição fica registrada nos metadados do token e é verificada na rede Solana.",
+    "createdAt": "2026-06-22T12:00:00.000Z",
+    "sales": 417,
+    "rating": 4.1,
+    "reviewsCount": 61,
+    "badge": null,
+    "featured": false,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 2210000,
+        "supply": 135,
+        "available": 57
+      },
+      {
+        "id": "ouro",
+        "label": "Ouro",
+        "price": 4860000,
+        "supply": 11,
+        "available": 2
+      }
+    ]
+  },
+  {
+    "id": "coral-drifter-893",
+    "name": "Coral Drifter #893",
+    "collection": "arte-digital",
+    "network": "polygon",
+    "creator": {
+      "name": "Teo Andrade",
+      "handle": "teoandrade"
+    },
+    "art": {
+      "species": "gorilla",
+      "bg": "lavender",
+      "outfit": "varsity",
+      "outfitColor": "burgundy",
+      "headwear": "headphones",
+      "eyes": "sunglasses",
+      "mouth": "smile",
+      "accessory": "none"
+    },
+    "attributes": [
+      "Óculos escuros",
+      "Fone de ouvido",
+      "Jaqueta college vinho"
+    ],
+    "rarity": "Rara",
+    "description": "Coral Drifter #893 é uma obra digital 1/1 da coleção Arte digital criada por Teo Andrade. Cada edição fica registrada nos metadados do token e é verificada na rede Polygon.",
+    "createdAt": "2026-01-05T12:00:00.000Z",
+    "sales": 175,
+    "rating": 4.4,
+    "reviewsCount": 35,
+    "badge": null,
+    "featured": false,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 110000,
+        "supply": 59,
+        "available": 18
+      },
+      {
+        "id": "prova-do-artista",
+        "label": "Prova do artista",
+        "price": 660000,
+        "supply": 1,
+        "available": 0
+      }
+    ]
+  },
+  {
+    "id": "cobalt-pilot-759",
+    "name": "Cobalt Pilot #759",
+    "collection": "fotografia",
+    "network": "solana",
+    "creator": {
+      "name": "Coletivo Jabuti",
+      "handle": "coletivojabuti"
+    },
+    "art": {
+      "species": "gorilla",
+      "bg": "lavender",
+      "outfit": "blazer",
+      "outfitColor": "black",
+      "headwear": "beanie",
+      "eyes": "visor",
+      "mouth": "smirk",
+      "accessory": "pendant"
+    },
+    "attributes": [
+      "Viseira neon",
+      "Gorro",
+      "Blazer preto",
+      "Pingente"
+    ],
+    "rarity": "Lendária",
+    "description": "Cobalt Pilot #759 é uma obra digital 1/1 da coleção Fotografia criada por Coletivo Jabuti. Cada edição fica registrada nos metadados do token e é verificada na rede Solana.",
+    "createdAt": "2026-06-16T12:00:00.000Z",
+    "sales": 279,
+    "rating": 4.1,
+    "reviewsCount": 66,
+    "badge": null,
+    "featured": false,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 2090000,
+        "supply": 138,
+        "available": 60
+      },
+      {
+        "id": "ouro",
+        "label": "Ouro",
+        "price": 4600000,
+        "supply": 15,
+        "available": 8
+      }
+    ]
+  },
+  {
+    "id": "amber-monk-945",
+    "name": "Amber Monk #945",
+    "collection": "musica",
+    "network": "solana",
+    "creator": {
+      "name": "Lia Okafor",
+      "handle": "liaokafor"
+    },
+    "art": {
+      "species": "chimp",
+      "bg": "lavender",
+      "outfit": "tee",
+      "outfitColor": "cream",
+      "headwear": "bucket",
+      "eyes": "sunglasses",
+      "mouth": "smirk",
+      "accessory": "chain"
+    },
+    "attributes": [
+      "Óculos escuros",
+      "Chapéu bucket",
+      "Camiseta creme",
+      "Corrente"
+    ],
+    "rarity": "Comum",
+    "description": "Amber Monk #945 é uma obra digital 1/1 da coleção Música criada por Lia Okafor. Cada edição fica registrada nos metadados do token e é verificada na rede Solana.",
+    "createdAt": "2026-01-27T12:00:00.000Z",
+    "sales": 187,
+    "rating": 4.7,
+    "reviewsCount": 45,
+    "badge": null,
+    "featured": false,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 1080000,
+        "supply": 45,
+        "available": 19
+      },
+      {
+        "id": "ouro",
+        "label": "Ouro",
+        "price": 2380000,
+        "supply": 13,
+        "available": 3
+      }
+    ]
+  },
+  {
+    "id": "jade-pilot-563",
+    "name": "Jade Pilot #563",
+    "collection": "arte-3d",
+    "network": "solana",
+    "creator": {
+      "name": "Rafa Nakamura",
+      "handle": "rafanakamura"
+    },
+    "art": {
+      "species": "silverback",
+      "bg": "cream",
+      "outfit": "blazer",
+      "outfitColor": "mustard",
+      "headwear": "cap",
+      "eyes": "round-glasses",
+      "mouth": "neutral",
+      "accessory": "pendant"
+    },
+    "attributes": [
+      "Óculos redondos",
+      "Boné",
+      "Blazer mostarda",
+      "Pingente"
+    ],
+    "rarity": "Comum",
+    "description": "Jade Pilot #563 é uma obra digital 1/1 da coleção Arte 3D criada por Rafa Nakamura. Cada edição fica registrada nos metadados do token e é verificada na rede Solana.",
+    "createdAt": "2026-06-10T12:00:00.000Z",
+    "sales": 266,
+    "rating": 4,
+    "reviewsCount": 4,
+    "badge": null,
+    "featured": false,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 1020000,
+        "supply": 193,
+        "available": 30
+      }
+    ]
+  },
+  {
+    "id": "emerald-pilot-967",
+    "name": "Emerald Pilot #967",
+    "collection": "colecionaveis",
+    "network": "polygon",
+    "creator": {
+      "name": "Marina Vieira",
+      "handle": "marinavieira"
+    },
+    "art": {
+      "species": "orangutan",
+      "bg": "mint",
+      "outfit": "varsity",
+      "outfitColor": "navy",
+      "headwear": "bucket",
+      "eyes": "sleepy",
+      "mouth": "smile",
+      "accessory": "none"
+    },
+    "attributes": [
+      "Olhar sereno",
+      "Chapéu bucket",
+      "Jaqueta college marinho"
+    ],
+    "rarity": "Rara",
+    "description": "Emerald Pilot #967 é uma obra digital 1/1 da coleção Colecionáveis criada por Marina Vieira. Cada edição fica registrada nos metadados do token e é verificada na rede Polygon.",
+    "createdAt": "2026-01-21T12:00:00.000Z",
+    "sales": 117,
+    "rating": 4.7,
+    "reviewsCount": 7,
+    "badge": null,
+    "featured": false,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 2220000,
+        "supply": 171,
+        "available": 72
+      },
+      {
+        "id": "ouro",
+        "label": "Ouro",
+        "price": 4880000,
+        "supply": 15,
+        "available": 9
+      },
+      {
+        "id": "prova-do-artista",
+        "label": "Prova do artista",
+        "price": 13320000,
+        "supply": 2,
+        "available": 1
+      }
+    ]
+  },
+  {
+    "id": "golden-baron-242",
+    "name": "Golden Baron #242",
+    "collection": "esportes",
+    "network": "solana",
+    "creator": {
+      "name": "Studio Baobá",
+      "handle": "studiobaoba"
+    },
+    "art": {
+      "species": "golden",
+      "bg": "sage",
+      "outfit": "tee",
+      "outfitColor": "cream",
+      "headwear": "beanie",
+      "eyes": "open",
+      "mouth": "neutral",
+      "accessory": "earring"
+    },
+    "attributes": [
+      "Olhar atento",
+      "Gorro",
+      "Camiseta creme",
+      "Brinco"
+    ],
+    "rarity": "Comum",
+    "description": "Golden Baron #242 é uma obra digital 1/1 da coleção Esportes criada por Studio Baobá. Cada edição fica registrada nos metadados do token e é verificada na rede Solana.",
+    "createdAt": "2026-06-04T12:00:00.000Z",
+    "sales": 461,
+    "rating": 4.6,
+    "reviewsCount": 59,
+    "badge": "novo",
+    "featured": false,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 2420000,
+        "supply": 60,
+        "available": 28
+      },
+      {
+        "id": "ouro",
+        "label": "Ouro",
+        "price": 5320000,
+        "supply": 25,
+        "available": 12
+      }
+    ]
+  },
+  {
+    "id": "ivory-rogue-969",
+    "name": "Ivory Rogue #969",
+    "collection": "jogos",
+    "network": "polygon",
+    "creator": {
+      "name": "Teo Andrade",
+      "handle": "teoandrade"
+    },
+    "art": {
+      "species": "golden",
+      "bg": "sage",
+      "outfit": "hoodie",
+      "outfitColor": "navy",
+      "headwear": "none",
+      "eyes": "sunglasses",
+      "mouth": "neutral",
+      "accessory": "chain"
+    },
+    "attributes": [
+      "Óculos escuros",
+      "Moletom marinho",
+      "Corrente"
+    ],
+    "rarity": "Comum",
+    "description": "Ivory Rogue #969 é uma obra digital 1/1 da coleção Jogos criada por Teo Andrade. Cada edição fica registrada nos metadados do token e é verificada na rede Polygon.",
+    "createdAt": "2026-01-15T12:00:00.000Z",
+    "sales": 283,
+    "rating": 4.2,
+    "reviewsCount": 35,
+    "badge": null,
+    "featured": false,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 1420000,
+        "supply": 88,
+        "available": 56
+      }
+    ]
+  },
+  {
+    "id": "copper-ape-340",
+    "name": "Copper Ape #340",
+    "collection": "ilustracoes",
+    "network": "polygon",
+    "creator": {
+      "name": "Coletivo Jabuti",
+      "handle": "coletivojabuti"
+    },
+    "art": {
+      "species": "gorilla",
+      "bg": "sand",
+      "outfit": "tee",
+      "outfitColor": "burgundy",
+      "headwear": "none",
+      "eyes": "sleepy",
+      "mouth": "neutral",
+      "accessory": "chain"
+    },
+    "attributes": [
+      "Olhar sereno",
+      "Camiseta vinho",
+      "Corrente"
+    ],
+    "rarity": "Incomum",
+    "description": "Copper Ape #340 é uma obra digital 1/1 da coleção Ilustrações criada por Coletivo Jabuti. Cada edição fica registrada nos metadados do token e é verificada na rede Polygon.",
+    "createdAt": "2026-06-26T12:00:00.000Z",
+    "sales": 32,
+    "rating": 4.4,
+    "reviewsCount": 74,
+    "badge": null,
+    "featured": false,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 6280000,
+        "supply": 164,
+        "available": 117
+      },
+      {
+        "id": "ouro",
+        "label": "Ouro",
+        "price": 13820000,
+        "supply": 16,
+        "available": 2
+      }
+    ]
+  },
+  {
+    "id": "jade-drifter-862",
+    "name": "Jade Drifter #862",
+    "collection": "arte-digital",
+    "network": "solana",
+    "creator": {
+      "name": "Lia Okafor",
+      "handle": "liaokafor"
+    },
+    "art": {
+      "species": "orangutan",
+      "bg": "sky",
+      "outfit": "tee",
+      "outfitColor": "olive",
+      "headwear": "bucket",
+      "eyes": "sunglasses",
+      "mouth": "neutral",
+      "accessory": "chain"
+    },
+    "attributes": [
+      "Óculos escuros",
+      "Chapéu bucket",
+      "Camiseta oliva",
+      "Corrente"
+    ],
+    "rarity": "Rara",
+    "description": "Jade Drifter #862 é uma obra digital 1/1 da coleção Arte digital criada por Lia Okafor. Cada edição fica registrada nos metadados do token e é verificada na rede Solana.",
+    "createdAt": "2026-01-09T12:00:00.000Z",
+    "sales": 75,
+    "rating": 4.1,
+    "reviewsCount": 48,
+    "badge": null,
+    "featured": false,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 260000,
+        "supply": 141,
+        "available": 73
+      },
+      {
+        "id": "ouro",
+        "label": "Ouro",
+        "price": 570000,
+        "supply": 25,
+        "available": 9
+      },
+      {
+        "id": "prova-do-artista",
+        "label": "Prova do artista",
+        "price": 1560000,
+        "supply": 3,
+        "available": 0
+      }
+    ]
+  },
+  {
+    "id": "ivory-drifter-676",
+    "name": "Ivory Drifter #676",
+    "collection": "fotografia",
+    "network": "ethereum",
+    "creator": {
+      "name": "Rafa Nakamura",
+      "handle": "rafanakamura"
+    },
+    "art": {
+      "species": "golden",
+      "bg": "peach",
+      "outfit": "varsity",
+      "outfitColor": "green",
+      "headwear": "headphones",
+      "eyes": "open",
+      "mouth": "grin",
+      "accessory": "none"
+    },
+    "attributes": [
+      "Olhar atento",
+      "Fone de ouvido",
+      "Jaqueta college verde"
+    ],
+    "rarity": "Comum",
+    "description": "Ivory Drifter #676 é uma obra digital 1/1 da coleção Fotografia criada por Rafa Nakamura. Cada edição fica registrada nos metadados do token e é verificada na rede Ethereum.",
+    "createdAt": "2026-06-20T12:00:00.000Z",
+    "sales": 300,
+    "rating": 4.8,
+    "reviewsCount": 95,
+    "badge": null,
+    "featured": false,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 4940000,
+        "supply": 153,
+        "available": 79
+      }
+    ]
+  },
+  {
+    "id": "sage-oracle-913",
+    "name": "Sage Oracle #913",
+    "collection": "musica",
+    "network": "polygon",
+    "creator": {
+      "name": "Marina Vieira",
+      "handle": "marinavieira"
+    },
+    "art": {
+      "species": "chimp",
+      "bg": "peach",
+      "outfit": "blazer",
+      "outfitColor": "navy",
+      "headwear": "headphones",
+      "eyes": "visor",
+      "mouth": "grin",
+      "accessory": "none"
+    },
+    "attributes": [
+      "Viseira neon",
+      "Fone de ouvido",
+      "Blazer marinho"
+    ],
+    "rarity": "Lendária",
+    "description": "Sage Oracle #913 é uma obra digital 1/1 da coleção Música criada por Marina Vieira. Cada edição fica registrada nos metadados do token e é verificada na rede Polygon.",
+    "createdAt": "2026-01-03T12:00:00.000Z",
+    "sales": 56,
+    "rating": 4.9,
+    "reviewsCount": 3,
+    "badge": null,
+    "featured": false,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 1960000,
+        "supply": 121,
+        "available": 70
+      },
+      {
+        "id": "ouro",
+        "label": "Ouro",
+        "price": 4310000,
+        "supply": 18,
+        "available": 2
+      }
+    ]
+  },
+  {
+    "id": "indigo-mogul-122",
+    "name": "Indigo Mogul #122",
+    "collection": "arte-3d",
+    "network": "solana",
+    "creator": {
+      "name": "Studio Baobá",
+      "handle": "studiobaoba"
+    },
+    "art": {
+      "species": "orangutan",
+      "bg": "sand",
+      "outfit": "bomber",
+      "outfitColor": "mustard",
+      "headwear": "bucket",
+      "eyes": "open",
+      "mouth": "neutral",
+      "accessory": "earring"
+    },
+    "attributes": [
+      "Olhar atento",
+      "Chapéu bucket",
+      "Jaqueta bomber mostarda",
+      "Brinco"
+    ],
+    "rarity": "Comum",
+    "description": "Indigo Mogul #122 é uma obra digital 1/1 da coleção Arte 3D criada por Studio Baobá. Cada edição fica registrada nos metadados do token e é verificada na rede Solana.",
+    "createdAt": "2026-06-14T12:00:00.000Z",
+    "sales": 79,
+    "rating": 4.1,
+    "reviewsCount": 2,
+    "badge": null,
+    "featured": false,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 720000,
+        "supply": 180,
+        "available": 119
+      },
+      {
+        "id": "ouro",
+        "label": "Ouro",
+        "price": 1580000,
+        "supply": 16,
+        "available": 10
+      }
+    ]
+  },
+  {
+    "id": "ruby-drifter-807",
+    "name": "Ruby Drifter #807",
+    "collection": "colecionaveis",
+    "network": "polygon",
+    "creator": {
+      "name": "Teo Andrade",
+      "handle": "teoandrade"
+    },
+    "art": {
+      "species": "silverback",
+      "bg": "lavender",
+      "outfit": "blazer",
+      "outfitColor": "cream",
+      "headwear": "beanie",
+      "eyes": "round-glasses",
+      "mouth": "smile",
+      "accessory": "chain"
+    },
+    "attributes": [
+      "Óculos redondos",
+      "Gorro",
+      "Blazer creme",
+      "Corrente"
+    ],
+    "rarity": "Rara",
+    "description": "Ruby Drifter #807 é uma obra digital 1/1 da coleção Colecionáveis criada por Teo Andrade. Cada edição fica registrada nos metadados do token e é verificada na rede Polygon.",
+    "createdAt": "2026-01-25T12:00:00.000Z",
+    "sales": 425,
+    "rating": 4.1,
+    "reviewsCount": 59,
+    "badge": null,
+    "featured": false,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 1760000,
+        "supply": 70,
+        "available": 46
+      },
+      {
+        "id": "prova-do-artista",
+        "label": "Prova do artista",
+        "price": 10560000,
+        "supply": 2,
+        "available": 1
+      }
+    ]
+  },
+  {
+    "id": "coral-scholar-470",
+    "name": "Coral Scholar #470",
+    "collection": "esportes",
+    "network": "solana",
+    "creator": {
+      "name": "Coletivo Jabuti",
+      "handle": "coletivojabuti"
+    },
+    "art": {
+      "species": "chimp",
+      "bg": "sky",
+      "outfit": "blazer",
+      "outfitColor": "navy",
+      "headwear": "headphones",
+      "eyes": "open",
+      "mouth": "neutral",
+      "accessory": "pendant"
+    },
+    "attributes": [
+      "Olhar atento",
+      "Fone de ouvido",
+      "Blazer marinho",
+      "Pingente"
+    ],
+    "rarity": "Incomum",
+    "description": "Coral Scholar #470 é uma obra digital 1/1 da coleção Esportes criada por Coletivo Jabuti. Cada edição fica registrada nos metadados do token e é verificada na rede Solana.",
+    "createdAt": "2026-06-08T12:00:00.000Z",
+    "sales": 241,
+    "rating": 4.6,
+    "reviewsCount": 78,
+    "badge": null,
+    "featured": false,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 1610000,
+        "supply": 143,
+        "available": 24
+      },
+      {
+        "id": "ouro",
+        "label": "Ouro",
+        "price": 3540000,
+        "supply": 10,
+        "available": 1
+      }
+    ]
+  },
+  {
+    "id": "sage-ape-527",
+    "name": "Sage Ape #527",
+    "collection": "jogos",
+    "network": "polygon",
+    "creator": {
+      "name": "Lia Okafor",
+      "handle": "liaokafor"
+    },
+    "art": {
+      "species": "chimp",
+      "bg": "sage",
+      "outfit": "blazer",
+      "outfitColor": "olive",
+      "headwear": "none",
+      "eyes": "round-glasses",
+      "mouth": "smile",
+      "accessory": "earring"
+    },
+    "attributes": [
+      "Óculos redondos",
+      "Blazer oliva",
+      "Brinco"
+    ],
+    "rarity": "Comum",
+    "description": "Sage Ape #527 é uma obra digital 1/1 da coleção Jogos criada por Lia Okafor. Cada edição fica registrada nos metadados do token e é verificada na rede Polygon.",
+    "createdAt": "2026-01-19T12:00:00.000Z",
+    "sales": 136,
+    "rating": 4.2,
+    "reviewsCount": 52,
+    "badge": null,
+    "featured": false,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 5440000,
+        "supply": 85,
+        "available": 14
+      },
+      {
+        "id": "ouro",
+        "label": "Ouro",
+        "price": 11970000,
+        "supply": 24,
+        "available": 16
+      }
+    ]
+  },
+  {
+    "id": "velvet-ape-467",
+    "name": "Velvet Ape #467",
+    "collection": "ilustracoes",
+    "network": "ethereum",
+    "creator": {
+      "name": "Rafa Nakamura",
+      "handle": "rafanakamura"
+    },
+    "art": {
+      "species": "golden",
+      "bg": "cream",
+      "outfit": "bomber",
+      "outfitColor": "burgundy",
+      "headwear": "cap",
+      "eyes": "open",
+      "mouth": "smirk",
+      "accessory": "pendant"
+    },
+    "attributes": [
+      "Olhar atento",
+      "Boné",
+      "Jaqueta bomber vinho",
+      "Pingente"
+    ],
+    "rarity": "Comum",
+    "description": "Velvet Ape #467 é uma obra digital 1/1 da coleção Ilustrações criada por Rafa Nakamura. Cada edição fica registrada nos metadados do token e é verificada na rede Ethereum.",
+    "createdAt": "2026-06-02T12:00:00.000Z",
+    "sales": 47,
+    "rating": 4.2,
+    "reviewsCount": 43,
+    "badge": "novo",
+    "featured": false,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 730000,
+        "supply": 121,
+        "available": 74
+      }
+    ]
+  },
+  {
+    "id": "velvet-echo-192",
+    "name": "Velvet Echo #192",
+    "collection": "arte-digital",
+    "network": "solana",
+    "creator": {
+      "name": "Marina Vieira",
+      "handle": "marinavieira"
+    },
+    "art": {
+      "species": "silverback",
+      "bg": "mint",
+      "outfit": "varsity",
+      "outfitColor": "olive",
+      "headwear": "cap",
+      "eyes": "sleepy",
+      "mouth": "smirk",
+      "accessory": "none"
+    },
+    "attributes": [
+      "Olhar sereno",
+      "Boné",
+      "Jaqueta college oliva"
+    ],
+    "rarity": "Rara",
+    "description": "Velvet Echo #192 é uma obra digital 1/1 da coleção Arte digital criada por Marina Vieira. Cada edição fica registrada nos metadados do token e é verificada na rede Solana.",
+    "createdAt": "2026-01-13T12:00:00.000Z",
+    "sales": 303,
+    "rating": 4.9,
+    "reviewsCount": 93,
+    "badge": null,
+    "featured": false,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 1000000,
+        "supply": 198,
+        "available": 123
+      },
+      {
+        "id": "ouro",
+        "label": "Ouro",
+        "price": 2200000,
+        "supply": 22,
+        "available": 2
+      },
+      {
+        "id": "prova-do-artista",
+        "label": "Prova do artista",
+        "price": 6000000,
+        "supply": 3,
+        "available": 0
+      }
+    ]
+  },
+  {
+    "id": "copper-signal-565",
+    "name": "Copper Signal #565",
+    "collection": "fotografia",
+    "network": "solana",
+    "creator": {
+      "name": "Studio Baobá",
+      "handle": "studiobaoba"
+    },
+    "art": {
+      "species": "golden",
+      "bg": "cream",
+      "outfit": "tee",
+      "outfitColor": "cream",
+      "headwear": "beanie",
+      "eyes": "sleepy",
+      "mouth": "grin",
+      "accessory": "chain"
+    },
+    "attributes": [
+      "Olhar sereno",
+      "Gorro",
+      "Camiseta creme",
+      "Corrente"
+    ],
+    "rarity": "Comum",
+    "description": "Copper Signal #565 é uma obra digital 1/1 da coleção Fotografia criada por Studio Baobá. Cada edição fica registrada nos metadados do token e é verificada na rede Solana.",
+    "createdAt": "2026-06-24T12:00:00.000Z",
+    "sales": 310,
+    "rating": 4.5,
+    "reviewsCount": 82,
+    "badge": null,
+    "featured": false,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 750000,
+        "supply": 124,
+        "available": 32
+      },
+      {
+        "id": "ouro",
+        "label": "Ouro",
+        "price": 1650000,
+        "supply": 13,
+        "available": 1
+      }
+    ]
+  },
+  {
+    "id": "onyx-monk-252",
+    "name": "Onyx Monk #252",
+    "collection": "musica",
+    "network": "polygon",
+    "creator": {
+      "name": "Teo Andrade",
+      "handle": "teoandrade"
+    },
+    "art": {
+      "species": "silverback",
+      "bg": "sage",
+      "outfit": "tee",
+      "outfitColor": "cream",
+      "headwear": "beanie",
+      "eyes": "sunglasses",
+      "mouth": "neutral",
+      "accessory": "none"
+    },
+    "attributes": [
+      "Óculos escuros",
+      "Gorro",
+      "Camiseta creme"
+    ],
+    "rarity": "Comum",
+    "description": "Onyx Monk #252 é uma obra digital 1/1 da coleção Música criada por Teo Andrade. Cada edição fica registrada nos metadados do token e é verificada na rede Polygon.",
+    "createdAt": "2026-01-07T12:00:00.000Z",
+    "sales": 375,
+    "rating": 4.6,
+    "reviewsCount": 11,
+    "badge": null,
+    "featured": false,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 12200000,
+        "supply": 137,
+        "available": 53
+      }
+    ]
+  },
+  {
+    "id": "copper-oracle-951",
+    "name": "Copper Oracle #951",
+    "collection": "arte-3d",
+    "network": "solana",
+    "creator": {
+      "name": "Coletivo Jabuti",
+      "handle": "coletivojabuti"
+    },
+    "art": {
+      "species": "chimp",
+      "bg": "sky",
+      "outfit": "hoodie",
+      "outfitColor": "black",
+      "headwear": "beanie",
+      "eyes": "open",
+      "mouth": "grin",
+      "accessory": "chain"
+    },
+    "attributes": [
+      "Olhar atento",
+      "Gorro",
+      "Moletom preto",
+      "Corrente"
+    ],
+    "rarity": "Lendária",
+    "description": "Copper Oracle #951 é uma obra digital 1/1 da coleção Arte 3D criada por Coletivo Jabuti. Cada edição fica registrada nos metadados do token e é verificada na rede Solana.",
+    "createdAt": "2026-06-18T12:00:00.000Z",
+    "sales": 166,
+    "rating": 4.4,
+    "reviewsCount": 39,
+    "badge": null,
+    "featured": false,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 290000,
+        "supply": 192,
+        "available": 35
+      },
+      {
+        "id": "ouro",
+        "label": "Ouro",
+        "price": 640000,
+        "supply": 19,
+        "available": 10
+      }
+    ]
+  },
+  {
+    "id": "lunar-rogue-729",
+    "name": "Lunar Rogue #729",
+    "collection": "colecionaveis",
+    "network": "ethereum",
+    "creator": {
+      "name": "Lia Okafor",
+      "handle": "liaokafor"
+    },
+    "art": {
+      "species": "golden",
+      "bg": "peach",
+      "outfit": "hoodie",
+      "outfitColor": "purple",
+      "headwear": "none",
+      "eyes": "open",
+      "mouth": "neutral",
+      "accessory": "chain"
+    },
+    "attributes": [
+      "Olhar atento",
+      "Moletom roxo",
+      "Corrente"
+    ],
+    "rarity": "Rara",
+    "description": "Lunar Rogue #729 é uma obra digital 1/1 da coleção Colecionáveis criada por Lia Okafor. Cada edição fica registrada nos metadados do token e é verificada na rede Ethereum.",
+    "createdAt": "2026-01-01T12:00:00.000Z",
+    "sales": 286,
+    "rating": 4.6,
+    "reviewsCount": 77,
+    "badge": null,
+    "featured": false,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 740000,
+        "supply": 106,
+        "available": 63
+      },
+      {
+        "id": "ouro",
+        "label": "Ouro",
+        "price": 1630000,
+        "supply": 9,
+        "available": 4
+      },
+      {
+        "id": "prova-do-artista",
+        "label": "Prova do artista",
+        "price": 4440000,
+        "supply": 1,
+        "available": 1
+      }
+    ]
+  },
+  {
+    "id": "ivory-nomad-463",
+    "name": "Ivory Nomad #463",
+    "collection": "esportes",
+    "network": "ethereum",
+    "creator": {
+      "name": "Rafa Nakamura",
+      "handle": "rafanakamura"
+    },
+    "art": {
+      "species": "gorilla",
+      "bg": "sky",
+      "outfit": "bomber",
+      "outfitColor": "mustard",
+      "headwear": "beanie",
+      "eyes": "round-glasses",
+      "mouth": "grin",
+      "accessory": "none"
+    },
+    "attributes": [
+      "Óculos redondos",
+      "Gorro",
+      "Jaqueta bomber mostarda"
+    ],
+    "rarity": "Comum",
+    "description": "Ivory Nomad #463 é uma obra digital 1/1 da coleção Esportes criada por Rafa Nakamura. Cada edição fica registrada nos metadados do token e é verificada na rede Ethereum.",
+    "createdAt": "2026-06-12T12:00:00.000Z",
+    "sales": 314,
+    "rating": 5,
+    "reviewsCount": 25,
+    "badge": null,
+    "featured": false,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 2240000,
+        "supply": 173,
+        "available": 59
+      }
+    ]
+  },
+  {
+    "id": "coral-mogul-959",
+    "name": "Coral Mogul #959",
+    "collection": "jogos",
+    "network": "polygon",
+    "creator": {
+      "name": "Marina Vieira",
+      "handle": "marinavieira"
+    },
+    "art": {
+      "species": "orangutan",
+      "bg": "lavender",
+      "outfit": "blazer",
+      "outfitColor": "purple",
+      "headwear": "headphones",
+      "eyes": "sunglasses",
+      "mouth": "smirk",
+      "accessory": "chain"
+    },
+    "attributes": [
+      "Óculos escuros",
+      "Fone de ouvido",
+      "Blazer roxo",
+      "Corrente"
+    ],
+    "rarity": "Incomum",
+    "description": "Coral Mogul #959 é uma obra digital 1/1 da coleção Jogos criada por Marina Vieira. Cada edição fica registrada nos metadados do token e é verificada na rede Polygon.",
+    "createdAt": "2026-01-23T12:00:00.000Z",
+    "sales": 148,
+    "rating": 4.3,
+    "reviewsCount": 47,
+    "badge": null,
+    "featured": false,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 2400000,
+        "supply": 61,
+        "available": 12
+      },
+      {
+        "id": "ouro",
+        "label": "Ouro",
+        "price": 5280000,
+        "supply": 25,
+        "available": 1
+      }
+    ]
+  },
+  {
+    "id": "emerald-rogue-496",
+    "name": "Emerald Rogue #496",
+    "collection": "ilustracoes",
+    "network": "ethereum",
+    "creator": {
+      "name": "Studio Baobá",
+      "handle": "studiobaoba"
+    },
+    "art": {
+      "species": "golden",
+      "bg": "sand",
+      "outfit": "varsity",
+      "outfitColor": "burgundy",
+      "headwear": "none",
+      "eyes": "sunglasses",
+      "mouth": "smirk",
+      "accessory": "none"
+    },
+    "attributes": [
+      "Óculos escuros",
+      "Jaqueta college vinho"
+    ],
+    "rarity": "Comum",
+    "description": "Emerald Rogue #496 é uma obra digital 1/1 da coleção Ilustrações criada por Studio Baobá. Cada edição fica registrada nos metadados do token e é verificada na rede Ethereum.",
+    "createdAt": "2026-06-06T12:00:00.000Z",
+    "sales": 212,
+    "rating": 4,
+    "reviewsCount": 94,
+    "badge": null,
+    "featured": false,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 2160000,
+        "supply": 100,
+        "available": 39
+      },
+      {
+        "id": "ouro",
+        "label": "Ouro",
+        "price": 4750000,
+        "supply": 15,
+        "available": 1
+      }
+    ]
+  },
+  {
+    "id": "onyx-nomad-321",
+    "name": "Onyx Nomad #321",
+    "collection": "arte-digital",
+    "network": "solana",
+    "creator": {
+      "name": "Teo Andrade",
+      "handle": "teoandrade"
+    },
+    "art": {
+      "species": "golden",
+      "bg": "sage",
+      "outfit": "varsity",
+      "outfitColor": "olive",
+      "headwear": "bucket",
+      "eyes": "sunglasses",
+      "mouth": "neutral",
+      "accessory": "none"
+    },
+    "attributes": [
+      "Óculos escuros",
+      "Chapéu bucket",
+      "Jaqueta college oliva"
+    ],
+    "rarity": "Rara",
+    "description": "Onyx Nomad #321 é uma obra digital 1/1 da coleção Arte digital criada por Teo Andrade. Cada edição fica registrada nos metadados do token e é verificada na rede Solana.",
+    "createdAt": "2026-01-17T12:00:00.000Z",
+    "sales": 19,
+    "rating": 4.3,
+    "reviewsCount": 38,
+    "badge": null,
+    "featured": false,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 410000,
+        "supply": 129,
+        "available": 79
+      },
+      {
+        "id": "prova-do-artista",
+        "label": "Prova do artista",
+        "price": 2460000,
+        "supply": 2,
+        "available": 0
+      }
+    ]
+  },
+  {
+    "id": "sage-beat-109",
+    "name": "Sage Beat #109",
+    "collection": "fotografia",
+    "network": "solana",
+    "creator": {
+      "name": "Coletivo Jabuti",
+      "handle": "coletivojabuti"
+    },
+    "art": {
+      "species": "chimp",
+      "bg": "cream",
+      "outfit": "blazer",
+      "outfitColor": "black",
+      "headwear": "none",
+      "eyes": "sleepy",
+      "mouth": "neutral",
+      "accessory": "none"
+    },
+    "attributes": [
+      "Olhar sereno",
+      "Blazer preto"
+    ],
+    "rarity": "Incomum",
+    "description": "Sage Beat #109 é uma obra digital 1/1 da coleção Fotografia criada por Coletivo Jabuti. Cada edição fica registrada nos metadados do token e é verificada na rede Solana.",
+    "createdAt": "2026-06-28T12:00:00.000Z",
+    "sales": 387,
+    "rating": 4.4,
+    "reviewsCount": 67,
+    "badge": "novo",
+    "featured": false,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 870000,
+        "supply": 84,
+        "available": 52
+      },
+      {
+        "id": "ouro",
+        "label": "Ouro",
+        "price": 1910000,
+        "supply": 23,
+        "available": 5
+      }
+    ]
+  },
+  {
+    "id": "sage-echo-772",
+    "name": "Sage Echo #772",
+    "collection": "musica",
+    "network": "polygon",
+    "creator": {
+      "name": "Lia Okafor",
+      "handle": "liaokafor"
+    },
+    "art": {
+      "species": "orangutan",
+      "bg": "peach",
+      "outfit": "bomber",
+      "outfitColor": "olive",
+      "headwear": "none",
+      "eyes": "sleepy",
+      "mouth": "smirk",
+      "accessory": "none"
+    },
+    "attributes": [
+      "Olhar sereno",
+      "Jaqueta bomber oliva"
+    ],
+    "rarity": "Comum",
+    "description": "Sage Echo #772 é uma obra digital 1/1 da coleção Música criada por Lia Okafor. Cada edição fica registrada nos metadados do token e é verificada na rede Polygon.",
+    "createdAt": "2026-01-11T12:00:00.000Z",
+    "sales": 415,
+    "rating": 4.9,
+    "reviewsCount": 63,
+    "badge": null,
+    "featured": false,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 3220000,
+        "supply": 181,
+        "available": 72
+      },
+      {
+        "id": "ouro",
+        "label": "Ouro",
+        "price": 7080000,
+        "supply": 24,
+        "available": 14
+      }
+    ]
+  },
+  {
+    "id": "velvet-pilot-575",
+    "name": "Velvet Pilot #575",
+    "collection": "arte-3d",
+    "network": "ethereum",
+    "creator": {
+      "name": "Rafa Nakamura",
+      "handle": "rafanakamura"
+    },
+    "art": {
+      "species": "orangutan",
+      "bg": "mint",
+      "outfit": "varsity",
+      "outfitColor": "green",
+      "headwear": "none",
+      "eyes": "open",
+      "mouth": "smirk",
+      "accessory": "none"
+    },
+    "attributes": [
+      "Olhar atento",
+      "Jaqueta college verde"
+    ],
+    "rarity": "Comum",
+    "description": "Velvet Pilot #575 é uma obra digital 1/1 da coleção Arte 3D criada por Rafa Nakamura. Cada edição fica registrada nos metadados do token e é verificada na rede Ethereum.",
+    "createdAt": "2026-06-22T12:00:00.000Z",
+    "sales": 145,
+    "rating": 4.9,
+    "reviewsCount": 14,
+    "badge": null,
+    "featured": false,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 8980000,
+        "supply": 41,
+        "available": 21
+      }
+    ]
+  },
+  {
+    "id": "golden-ape-884",
+    "name": "Golden Ape #884",
+    "collection": "colecionaveis",
+    "network": "polygon",
+    "creator": {
+      "name": "Marina Vieira",
+      "handle": "marinavieira"
+    },
+    "art": {
+      "species": "golden",
+      "bg": "peach",
+      "outfit": "varsity",
+      "outfitColor": "black",
+      "headwear": "bucket",
+      "eyes": "sleepy",
+      "mouth": "grin",
+      "accessory": "earring"
+    },
+    "attributes": [
+      "Olhar sereno",
+      "Chapéu bucket",
+      "Jaqueta college preto",
+      "Brinco"
+    ],
+    "rarity": "Lendária",
+    "description": "Golden Ape #884 é uma obra digital 1/1 da coleção Colecionáveis criada por Marina Vieira. Cada edição fica registrada nos metadados do token e é verificada na rede Polygon.",
+    "createdAt": "2026-01-05T12:00:00.000Z",
+    "sales": 349,
+    "rating": 4.8,
+    "reviewsCount": 58,
+    "badge": null,
+    "featured": false,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 9720000,
+        "supply": 111,
+        "available": 45
+      },
+      {
+        "id": "ouro",
+        "label": "Ouro",
+        "price": 21380000,
+        "supply": 25,
+        "available": 3
+      },
+      {
+        "id": "prova-do-artista",
+        "label": "Prova do artista",
+        "price": 58320000,
+        "supply": 1,
+        "available": 1
+      }
+    ]
+  },
+  {
+    "id": "jade-sentinel-791",
+    "name": "Jade Sentinel #791",
+    "collection": "esportes",
+    "network": "polygon",
+    "creator": {
+      "name": "Studio Baobá",
+      "handle": "studiobaoba"
+    },
+    "art": {
+      "species": "silverback",
+      "bg": "lavender",
+      "outfit": "varsity",
+      "outfitColor": "mustard",
+      "headwear": "beanie",
+      "eyes": "round-glasses",
+      "mouth": "neutral",
+      "accessory": "pendant"
+    },
+    "attributes": [
+      "Óculos redondos",
+      "Gorro",
+      "Jaqueta college mostarda",
+      "Pingente"
+    ],
+    "rarity": "Comum",
+    "description": "Jade Sentinel #791 é uma obra digital 1/1 da coleção Esportes criada por Studio Baobá. Cada edição fica registrada nos metadados do token e é verificada na rede Polygon.",
+    "createdAt": "2026-06-16T12:00:00.000Z",
+    "sales": 67,
+    "rating": 4.6,
+    "reviewsCount": 16,
+    "badge": null,
+    "featured": false,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 320000,
+        "supply": 143,
+        "available": 50
+      },
+      {
+        "id": "ouro",
+        "label": "Ouro",
+        "price": 700000,
+        "supply": 11,
+        "available": 2
+      }
+    ]
+  },
+  {
+    "id": "ruby-ape-673",
+    "name": "Ruby Ape #673",
+    "collection": "jogos",
+    "network": "polygon",
+    "creator": {
+      "name": "Teo Andrade",
+      "handle": "teoandrade"
+    },
+    "art": {
+      "species": "chimp",
+      "bg": "peach",
+      "outfit": "varsity",
+      "outfitColor": "navy",
+      "headwear": "none",
+      "eyes": "open",
+      "mouth": "smirk",
+      "accessory": "none"
+    },
+    "attributes": [
+      "Olhar atento",
+      "Jaqueta college marinho"
+    ],
+    "rarity": "Comum",
+    "description": "Ruby Ape #673 é uma obra digital 1/1 da coleção Jogos criada por Teo Andrade. Cada edição fica registrada nos metadados do token e é verificada na rede Polygon.",
+    "createdAt": "2026-01-27T12:00:00.000Z",
+    "sales": 301,
+    "rating": 4.5,
+    "reviewsCount": 86,
+    "badge": null,
+    "featured": false,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 1160000,
+        "supply": 103,
+        "available": 50
+      }
+    ]
+  },
+  {
+    "id": "indigo-captain-531",
+    "name": "Indigo Captain #531",
+    "collection": "ilustracoes",
+    "network": "polygon",
+    "creator": {
+      "name": "Coletivo Jabuti",
+      "handle": "coletivojabuti"
+    },
+    "art": {
+      "species": "silverback",
+      "bg": "cream",
+      "outfit": "bomber",
+      "outfitColor": "cream",
+      "headwear": "headphones",
+      "eyes": "sunglasses",
+      "mouth": "smirk",
+      "accessory": "earring"
+    },
+    "attributes": [
+      "Óculos escuros",
+      "Fone de ouvido",
+      "Jaqueta bomber creme",
+      "Brinco"
+    ],
+    "rarity": "Incomum",
+    "description": "Indigo Captain #531 é uma obra digital 1/1 da coleção Ilustrações criada por Coletivo Jabuti. Cada edição fica registrada nos metadados do token e é verificada na rede Polygon.",
+    "createdAt": "2026-06-10T12:00:00.000Z",
+    "sales": 205,
+    "rating": 4.7,
+    "reviewsCount": 88,
+    "badge": null,
+    "featured": false,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 1560000,
+        "supply": 187,
+        "available": 56
+      },
+      {
+        "id": "ouro",
+        "label": "Ouro",
+        "price": 3430000,
+        "supply": 10,
+        "available": 3
+      }
+    ]
+  },
+  {
+    "id": "lunar-nomad-285",
+    "name": "Lunar Nomad #285",
+    "collection": "arte-digital",
+    "network": "solana",
+    "creator": {
+      "name": "Lia Okafor",
+      "handle": "liaokafor"
+    },
+    "art": {
+      "species": "golden",
+      "bg": "sage",
+      "outfit": "varsity",
+      "outfitColor": "mustard",
+      "headwear": "bucket",
+      "eyes": "open",
+      "mouth": "neutral",
+      "accessory": "none"
+    },
+    "attributes": [
+      "Olhar atento",
+      "Chapéu bucket",
+      "Jaqueta college mostarda"
+    ],
+    "rarity": "Rara",
+    "description": "Lunar Nomad #285 é uma obra digital 1/1 da coleção Arte digital criada por Lia Okafor. Cada edição fica registrada nos metadados do token e é verificada na rede Solana.",
+    "createdAt": "2026-01-21T12:00:00.000Z",
+    "sales": 354,
+    "rating": 4.8,
+    "reviewsCount": 66,
+    "badge": null,
+    "featured": false,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 1710000,
+        "supply": 45,
+        "available": 25
+      },
+      {
+        "id": "ouro",
+        "label": "Ouro",
+        "price": 3760000,
+        "supply": 16,
+        "available": 7
+      },
+      {
+        "id": "prova-do-artista",
+        "label": "Prova do artista",
+        "price": 10260000,
+        "supply": 2,
+        "available": 0
+      }
+    ]
+  },
+  {
+    "id": "ruby-monk-517",
+    "name": "Ruby Monk #517",
+    "collection": "fotografia",
+    "network": "ethereum",
+    "creator": {
+      "name": "Rafa Nakamura",
+      "handle": "rafanakamura"
+    },
+    "art": {
+      "species": "silverback",
+      "bg": "sand",
+      "outfit": "bomber",
+      "outfitColor": "purple",
+      "headwear": "none",
+      "eyes": "round-glasses",
+      "mouth": "smile",
+      "accessory": "earring"
+    },
+    "attributes": [
+      "Óculos redondos",
+      "Jaqueta bomber roxo",
+      "Brinco"
+    ],
+    "rarity": "Comum",
+    "description": "Ruby Monk #517 é uma obra digital 1/1 da coleção Fotografia criada por Rafa Nakamura. Cada edição fica registrada nos metadados do token e é verificada na rede Ethereum.",
+    "createdAt": "2026-06-04T12:00:00.000Z",
+    "sales": 339,
+    "rating": 4.2,
+    "reviewsCount": 40,
+    "badge": null,
+    "featured": false,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 2470000,
+        "supply": 115,
+        "available": 40
+      }
+    ]
+  },
+  {
+    "id": "violet-drifter-039",
+    "name": "Violet Drifter #039",
+    "collection": "musica",
+    "network": "solana",
+    "creator": {
+      "name": "Marina Vieira",
+      "handle": "marinavieira"
+    },
+    "art": {
+      "species": "gorilla",
+      "bg": "mint",
+      "outfit": "blazer",
+      "outfitColor": "burgundy",
+      "headwear": "headphones",
+      "eyes": "visor",
+      "mouth": "neutral",
+      "accessory": "pendant"
+    },
+    "attributes": [
+      "Viseira neon",
+      "Fone de ouvido",
+      "Blazer vinho",
+      "Pingente"
+    ],
+    "rarity": "Incomum",
+    "description": "Violet Drifter #039 é uma obra digital 1/1 da coleção Música criada por Marina Vieira. Cada edição fica registrada nos metadados do token e é verificada na rede Solana.",
+    "createdAt": "2026-01-15T12:00:00.000Z",
+    "sales": 197,
+    "rating": 4,
+    "reviewsCount": 46,
+    "badge": null,
+    "featured": false,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 430000,
+        "supply": 43,
+        "available": 7
+      },
+      {
+        "id": "ouro",
+        "label": "Ouro",
+        "price": 950000,
+        "supply": 9,
+        "available": 1
+      }
+    ]
+  },
+  {
+    "id": "coral-nomad-482",
+    "name": "Coral Nomad #482",
+    "collection": "arte-3d",
+    "network": "solana",
+    "creator": {
+      "name": "Studio Baobá",
+      "handle": "studiobaoba"
+    },
+    "art": {
+      "species": "orangutan",
+      "bg": "peach",
+      "outfit": "bomber",
+      "outfitColor": "cream",
+      "headwear": "cap",
+      "eyes": "round-glasses",
+      "mouth": "neutral",
+      "accessory": "chain"
+    },
+    "attributes": [
+      "Óculos redondos",
+      "Boné",
+      "Jaqueta bomber creme",
+      "Corrente"
+    ],
+    "rarity": "Comum",
+    "description": "Coral Nomad #482 é uma obra digital 1/1 da coleção Arte 3D criada por Studio Baobá. Cada edição fica registrada nos metadados do token e é verificada na rede Solana.",
+    "createdAt": "2026-06-26T12:00:00.000Z",
+    "sales": 135,
+    "rating": 4.5,
+    "reviewsCount": 70,
+    "badge": "novo",
+    "featured": false,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 1660000,
+        "supply": 114,
+        "available": 20
+      },
+      {
+        "id": "ouro",
+        "label": "Ouro",
+        "price": 3650000,
+        "supply": 17,
+        "available": 3
+      }
+    ]
+  },
+  {
+    "id": "lunar-signal-278",
+    "name": "Lunar Signal #278",
+    "collection": "colecionaveis",
+    "network": "polygon",
+    "creator": {
+      "name": "Teo Andrade",
+      "handle": "teoandrade"
+    },
+    "art": {
+      "species": "orangutan",
+      "bg": "sand",
+      "outfit": "tee",
+      "outfitColor": "black",
+      "headwear": "cap",
+      "eyes": "open",
+      "mouth": "smile",
+      "accessory": "earring"
+    },
+    "attributes": [
+      "Olhar atento",
+      "Boné",
+      "Camiseta preto",
+      "Brinco"
+    ],
+    "rarity": "Rara",
+    "description": "Lunar Signal #278 é uma obra digital 1/1 da coleção Colecionáveis criada por Teo Andrade. Cada edição fica registrada nos metadados do token e é verificada na rede Polygon.",
+    "createdAt": "2026-01-09T12:00:00.000Z",
+    "sales": 480,
+    "rating": 4,
+    "reviewsCount": 5,
+    "badge": null,
+    "featured": false,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 5980000,
+        "supply": 179,
+        "available": 113
+      },
+      {
+        "id": "prova-do-artista",
+        "label": "Prova do artista",
+        "price": 35880000,
+        "supply": 2,
+        "available": 1
+      }
+    ]
+  },
+  {
+    "id": "sage-mogul-716",
+    "name": "Sage Mogul #716",
+    "collection": "esportes",
+    "network": "solana",
+    "creator": {
+      "name": "Coletivo Jabuti",
+      "handle": "coletivojabuti"
+    },
+    "art": {
+      "species": "silverback",
+      "bg": "mint",
+      "outfit": "hoodie",
+      "outfitColor": "cream",
+      "headwear": "headphones",
+      "eyes": "sunglasses",
+      "mouth": "grin",
+      "accessory": "chain"
+    },
+    "attributes": [
+      "Óculos escuros",
+      "Fone de ouvido",
+      "Moletom creme",
+      "Corrente"
+    ],
+    "rarity": "Lendária",
+    "description": "Sage Mogul #716 é uma obra digital 1/1 da coleção Esportes criada por Coletivo Jabuti. Cada edição fica registrada nos metadados do token e é verificada na rede Solana.",
+    "createdAt": "2026-06-20T12:00:00.000Z",
+    "sales": 425,
+    "rating": 4.2,
+    "reviewsCount": 84,
+    "badge": null,
+    "featured": false,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 2280000,
+        "supply": 71,
+        "available": 23
+      },
+      {
+        "id": "ouro",
+        "label": "Ouro",
+        "price": 5020000,
+        "supply": 16,
+        "available": 7
+      }
+    ]
+  },
+  {
+    "id": "copper-rogue-986",
+    "name": "Copper Rogue #986",
+    "collection": "jogos",
+    "network": "polygon",
+    "creator": {
+      "name": "Lia Okafor",
+      "handle": "liaokafor"
+    },
+    "art": {
+      "species": "gorilla",
+      "bg": "mint",
+      "outfit": "hoodie",
+      "outfitColor": "cream",
+      "headwear": "headphones",
+      "eyes": "sleepy",
+      "mouth": "neutral",
+      "accessory": "chain"
+    },
+    "attributes": [
+      "Olhar sereno",
+      "Fone de ouvido",
+      "Moletom creme",
+      "Corrente"
+    ],
+    "rarity": "Comum",
+    "description": "Copper Rogue #986 é uma obra digital 1/1 da coleção Jogos criada por Lia Okafor. Cada edição fica registrada nos metadados do token e é verificada na rede Polygon.",
+    "createdAt": "2026-01-03T12:00:00.000Z",
+    "sales": 214,
+    "rating": 4,
+    "reviewsCount": 12,
+    "badge": null,
+    "featured": false,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 270000,
+        "supply": 147,
+        "available": 102
+      },
+      {
+        "id": "ouro",
+        "label": "Ouro",
+        "price": 590000,
+        "supply": 23,
+        "available": 7
+      }
+    ]
+  },
+  {
+    "id": "amber-echo-681",
+    "name": "Amber Echo #681",
+    "collection": "ilustracoes",
+    "network": "ethereum",
+    "creator": {
+      "name": "Rafa Nakamura",
+      "handle": "rafanakamura"
+    },
+    "art": {
+      "species": "golden",
+      "bg": "lavender",
+      "outfit": "varsity",
+      "outfitColor": "cream",
+      "headwear": "headphones",
+      "eyes": "sunglasses",
+      "mouth": "smile",
+      "accessory": "chain"
+    },
+    "attributes": [
+      "Óculos escuros",
+      "Fone de ouvido",
+      "Jaqueta college creme",
+      "Corrente"
+    ],
+    "rarity": "Comum",
+    "description": "Amber Echo #681 é uma obra digital 1/1 da coleção Ilustrações criada por Rafa Nakamura. Cada edição fica registrada nos metadados do token e é verificada na rede Ethereum.",
+    "createdAt": "2026-06-14T12:00:00.000Z",
+    "sales": 273,
+    "rating": 4.6,
+    "reviewsCount": 67,
+    "badge": null,
+    "featured": false,
+    "editions": [
+      {
+        "id": "padrao",
+        "label": "Padrão",
+        "price": 70000,
+        "supply": 62,
+        "available": 36
+      }
+    ]
+  }
+]
