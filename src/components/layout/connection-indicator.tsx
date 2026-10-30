@@ -10,7 +10,7 @@ const LABEL: Record<ConnectionStatus, string> = {
   offline: 'Tempo real indisponível',
 }
 
-export function useConnectionStatus(): ConnectionStatus {
+function useConnectionStatus(): ConnectionStatus {
   return useSyncExternalStore(onConnectionStatus, getConnectionStatus, getConnectionStatus)
 }
 

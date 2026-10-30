@@ -27,7 +27,8 @@ export default defineConfig([
     rules: {
       ...reactHooks.configs.recommended.rules,
       ...jsxA11y.flatConfigs.recommended.rules,
-      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+      // variantes de estilo exportadas junto dos componentes, no padrão do shadcn/ui
+      'react-refresh/only-export-components': ['warn', { allowConstantExport: true, allowExportNames: ['badgeVariants', 'buttonVariants'] }],
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
       // rótulos dos campos usam htmlFor/id (componentes Label/Input do shadcn/ui)
       'jsx-a11y/label-has-associated-control': ['error', { assert: 'either', controlComponents: ['Input', 'Textarea', 'NativeSelect'] }],

@@ -182,4 +182,4 @@ Netlify e Cloudflare Pages também funcionam: comando `npm run build:demo`, past
 | Porta 5173 ou 4173 ocupada | Feche o outro processo (`Ctrl + C` no terminal dele) ou use `npm run dev -- --port 5180`. O preview usa a 4173 fixa, exigida pelos testes. |
 | `npm install` muito lento ou com erro `EPERM` | Mova a pasta para fora do OneDrive; adicione a pasta às exceções do antivírus; tente de novo após `npm cache verify`. |
 | Dados simulados "estranhos" depois de testes | Acesse `/?reset=1` ou use **Restaurar tudo** no painel Simulação. |
-| Página antiga após atualizar o código | `Ctrl + F5`; se persistir, DevTools → Application → Clear site data (remove o service worker antigo do MSW). |
+| Página antiga, "Não foi possível carregar o catálogo" ou tela que só mostra um nome (ex.: "LoginPage") depois de trocar de versão do projeto | Feche os `npm run dev` antigos, confira se está rodando a pasta nova e limpe os dados do site: F12 → **Application** → **Storage** → **Clear site data** → `Ctrl + F5` (remove o service worker e os dados simulados da versão anterior). |

@@ -16,7 +16,7 @@ import { announce } from '@/lib/announce'
 import { NETWORK_LABEL, PROVIDER_LABEL } from '@/lib/format'
 import { usePageMeta } from '@/lib/page-meta'
 import { useSaveWallet, useWallets } from '@/queries/account'
-import { NETWORKS_BY_PROVIDER } from '@/features/checkout/checkout-page'
+import { NETWORKS_BY_PROVIDER } from '@/features/checkout/networks'
 
 type Slot = 'primary' | 'secondary'
 

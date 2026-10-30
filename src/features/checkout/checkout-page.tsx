@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useNavigate } from '@tanstack/react-router'
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
 import { toast } from 'sonner'
-import { collectorSchema, type CreateOrderRequest, type Network, type Quote, type Wallet } from '@/api/contracts'
+import { collectorSchema, type CreateOrderRequest, type Network, type Quote } from '@/api/contracts'
 import { api } from '@/api/endpoints'
 import { toApiError } from '@/api/errors'
 import { ArrowLeft, CircleCheck, Plug, RefreshCw, TriangleAlert, Unplug, Wallet as WalletIcon } from '@/components/icons'
@@ -24,15 +24,9 @@ import { useWalletConnection, useWallets } from '@/queries/account'
 import { useCart, useCartQuote } from '@/queries/cart'
 import { useSession } from '@/session/session'
 import { SummaryRows } from '@/features/cart/cart-page'
+import { NETWORKS_BY_PROVIDER } from './networks'
 import { ReviewDialog } from './review-dialog'
 import { usePlaceOrder } from './use-place-order'
-
-export const NETWORKS_BY_PROVIDER: Record<Wallet['provider'], Network[]> = {
-  metamask: ['ethereum', 'polygon'],
-  walletconnect: ['ethereum', 'polygon', 'solana'],
-  coinbase: ['ethereum', 'polygon', 'solana'],
-  phantom: ['solana'],
-}
 
 interface Draft {
   name: string
@@ -75,7 +69,12 @@ function Checkout({ userId, defaultName, defaultEmail }: { userId: string; defau
   const formRef = useRef<HTMLFormElement>(null)
   const reviewButtonRef = useRef<HTMLButtonElement>(null)
   const placeOrder = usePlaceOrder(userId)
-  const savedAttempt = useMemo(() => loadAttempt<CreateOrderRequest>(userId), [userId, placeOrder.phase])
+  // a tentativa salva (sessionStorage) é relida quando o envio do pedido muda de fase
+  const phase = placeOrder.phase
+  const savedAttempt = useMemo(() => {
+    void phase
+    return loadAttempt<CreateOrderRequest>(userId)
+  }, [userId, phase])
 
   const update = (patch: Partial<Draft>) => setDraft((d) => ({ ...d, ...patch }))
 
