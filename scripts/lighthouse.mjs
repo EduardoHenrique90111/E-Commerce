@@ -7,6 +7,8 @@
  *   npm run lighthouse -- --url=https://kurio.vercel.app   # audita uma URL publicada
  *   npm run lighthouse -- --profiles=mobile --pages=inicio --runs=1
  *   (com --url, use --build-label="..." e --server-label="..." para descrever o que foi auditado)
+ *   --timeout=<ms> limita cada medição (padrão em lighthouse/audit.config.mjs)
+ *   --passive      coleta passiva (sem o teste ativo de back/forward cache), se o navegador falhar nessa etapa
  *
  * Variáveis de ambiente:
  *   CHROME_PATH        executável do Chrome/Chromium (padrão: Chromium do Playwright, se instalado;
@@ -42,6 +44,7 @@ const args = Object.fromEntries(
 const runs = Number(args.runs ?? plan.runs)
 const profiles = String(args.profiles ?? plan.profiles.join(',')).split(',')
 const pages = plan.pages.filter((p) => !args.pages || String(args.pages).split(',').includes(p.id))
+const runTimeoutMs = Number(args.timeout ?? plan.runTimeoutMs)
 const externalUrl = typeof args.url === 'string' ? args.url.replace(/\/$/, '') : process.env.LH_BASE_URL?.replace(/\/$/, '')
 
 const CATEGORIES = ['performance', 'accessibility', 'best-practices', 'seo']
@@ -165,7 +168,10 @@ process.on('SIGINT', () => {
 /* ------------------------------------------------------------------ */
 async function loadConfig(profile) {
   const file = path.join(root, 'lighthouse', `config.${profile}.mjs`)
-  return (await import(pathToFileURL(file).href)).default
+  const config = (await import(pathToFileURL(file).href)).default
+  // --passive: não navega para fora da página (teste ativo de back/forward cache e redimensionamento
+  // da captura de página inteira). Não altera pontuações; útil se o navegador falhar nessa etapa.
+  return args.passive ? { ...config, settings: { ...config.settings, usePassiveGathering: true } } : config
 }
 
 async function measure(url, config, executable) {
@@ -179,8 +185,8 @@ async function measure(url, config, executable) {
       /* opcional */
     }
     const result = await withTimeout(
-      lighthouse(url, { port: chrome.port, output: ['html', 'json'], logLevel: 'error' }, config),
-      plan.runTimeoutMs,
+      lighthouse(url, { port: chrome.port, output: ['html', 'json'], logLevel: process.env.LH_LOG_LEVEL ?? 'error' }, config),
+      runTimeoutMs,
       url,
     )
     if (!result?.lhr) throw new Error('o Lighthouse não retornou resultado')
@@ -225,11 +231,11 @@ function runChild(profile, pageId, run, baseUrl) {
   return new Promise((resolve, reject) => {
     const child = spawn(
       process.execPath,
-      [fileURLToPath(import.meta.url), '--single', `--profile=${profile}`, `--page=${pageId}`, `--run=${run}`, `--base=${baseUrl}`],
+      [fileURLToPath(import.meta.url), '--single', `--profile=${profile}`, `--page=${pageId}`, `--run=${run}`, `--base=${baseUrl}`, `--timeout=${runTimeoutMs}`, ...(args.passive ? ['--passive'] : [])],
       { cwd: root, stdio: ['ignore', 'inherit', 'inherit'] },
     )
     // salvaguarda: o filho já aplica o próprio tempo máximo e encerra o Chrome
-    const guard = setTimeout(() => child.kill(), plan.runTimeoutMs + 60_000)
+    const guard = setTimeout(() => child.kill(), runTimeoutMs + 60_000)
     child.on('exit', (code) => {
       clearTimeout(guard)
       const file = path.join(outDir, profile, `${pageId}-run${run}.report.result.tmp.json`)
@@ -320,6 +326,7 @@ async function main() {
     baseUrl,
     mocks: 'cenário padrão (armazenamento vazio a cada medição)',
     cache: 'frio (perfil de navegador novo a cada medição)',
+    passiveGathering: Boolean(args.passive),
     runsPerPage: runs,
   }
   const summary = { targets: plan.targets, environment, groups }
@@ -365,6 +372,7 @@ function toMarkdown({ targets, environment: env, groups }) {
   lines.push(`- Node.js ${env.node}; ${env.os}; CPU ${env.cpu}; ${env.memoryGb} GB de RAM; BenchmarkIndex mediano ${env.benchmarkIndex ?? '—'}`)
   lines.push(`- Build: ${env.build}; servidor: ${env.server}; URL base ${env.baseUrl}`)
   lines.push(`- Mocks: ${env.mocks}; cache: ${env.cache}`)
+  if (env.passiveGathering) lines.push('- Coleta passiva (`--passive`, `usePassiveGathering`): sem o teste ativo de back/forward cache (auditoria de peso 0) nem o redimensionamento da captura de página inteira; as pontuações não são afetadas')
   lines.push('- Throttling simulado (Lantern): mobile = 4G lento (RTT 150 ms, 1,6 Mbps) + CPU 4×; desktop = RTT 40 ms, 10 Mbps, CPU 1× — ver `lighthouse/config.*.mjs`')
   lines.push('')
   return lines.join('\n')

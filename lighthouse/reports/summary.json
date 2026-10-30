@@ -1,0 +1,384 @@
+{
+  "targets": {
+    "performance": 90,
+    "accessibility": 95,
+    "best-practices": 95,
+    "seo": 90
+  },
+  "environment": {
+    "date": "2026-10-30T15:55:59.173Z",
+    "lighthouse": "13.4.1",
+    "lighthousePackage": "13.4.0",
+    "chromeLauncher": "1.2.1",
+    "vite": "0.0.0-localshim",
+    "playwright": "1.63.0",
+    "browser": "Chrome/153.0.8010.12",
+    "hostUserAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+    "node": "v22.23.4",
+    "os": "Linux 6.18.44-fc-v185 (x64)",
+    "cpu": "Intel(R) Xeon(R) Processor @ 2.10GHz × 2",
+    "memoryGb": 8,
+    "benchmarkIndex": 1543,
+    "server": "servidor estático local com compressão brotli/gzip pré-calculada (equivalente à hospedagem estática da Vercel), HTTP/1.1",
+    "build": "build de produção equivalente ao do Vite (esbuild + Tailwind CSS 4: minificação, code splitting e modulepreload; ambiente sem acesso ao npm)",
+    "baseUrl": "http://localhost:4173",
+    "mocks": "cenário padrão (armazenamento vazio a cada medição)",
+    "cache": "frio (perfil de navegador novo a cada medição)",
+    "passiveGathering": true,
+    "runsPerPage": 3
+  },
+  "groups": [
+    {
+      "profile": "mobile",
+      "page": "inicio",
+      "pageName": "Início",
+      "path": "/",
+      "median": {
+        "performance": 75,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "medianMetrics": {
+        "FCP": 2166.987800000001,
+        "LCP": 3808.100500000002,
+        "TBT": 457.0949749999993,
+        "CLS": 0,
+        "SI": 2199.583397999948
+      },
+      "representativeRun": 2,
+      "runs": [
+        {
+          "profile": "mobile",
+          "page": "inicio",
+          "run": 1,
+          "scores": {
+            "performance": 74,
+            "accessibility": 100,
+            "best-practices": 100,
+            "seo": 100
+          },
+          "metrics": {
+            "FCP": 2166.987800000001,
+            "LCP": 3813.7195,
+            "TBT": 499.43902500000104,
+            "CLS": 0,
+            "SI": 2199.583397999948
+          },
+          "files": {
+            "html": "lighthouse/reports/mobile/inicio-run1.report.html",
+            "json": "lighthouse/reports/mobile/inicio-run1.report.json"
+          }
+        },
+        {
+          "profile": "mobile",
+          "page": "inicio",
+          "run": 2,
+          "scores": {
+            "performance": 75,
+            "accessibility": 100,
+            "best-practices": 100,
+            "seo": 100
+          },
+          "metrics": {
+            "FCP": 2260.2402,
+            "LCP": 3808.100500000002,
+            "TBT": 457.0949749999993,
+            "CLS": 0,
+            "SI": 2260.2402
+          },
+          "files": {
+            "html": "lighthouse/reports/mobile/inicio-run2.report.html",
+            "json": "lighthouse/reports/mobile/inicio-run2.report.json"
+          }
+        },
+        {
+          "profile": "mobile",
+          "page": "inicio",
+          "run": 3,
+          "scores": {
+            "performance": 79,
+            "accessibility": 100,
+            "best-practices": 100,
+            "seo": 100
+          },
+          "metrics": {
+            "FCP": 2144.2263999999996,
+            "LCP": 3734.8159999999993,
+            "TBT": 357.78419999999977,
+            "CLS": 0,
+            "SI": 2144.2263999999996
+          },
+          "files": {
+            "html": "lighthouse/reports/mobile/inicio-run3.report.html",
+            "json": "lighthouse/reports/mobile/inicio-run3.report.json"
+          }
+        }
+      ]
+    },
+    {
+      "profile": "mobile",
+      "page": "detalhe",
+      "pageName": "Detalhe do NFT",
+      "path": "/nft/emerald-ape-042",
+      "median": {
+        "performance": 73,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "medianMetrics": {
+        "FCP": 2197.146,
+        "LCP": 3777.9774999999995,
+        "TBT": 539.0000000000002,
+        "CLS": 0,
+        "SI": 2524.661329979887
+      },
+      "representativeRun": 1,
+      "runs": [
+        {
+          "profile": "mobile",
+          "page": "detalhe",
+          "run": 1,
+          "scores": {
+            "performance": 73,
+            "accessibility": 100,
+            "best-practices": 100,
+            "seo": 100
+          },
+          "metrics": {
+            "FCP": 2263.5910000000003,
+            "LCP": 3777.9774999999995,
+            "TBT": 539.0000000000002,
+            "CLS": 0,
+            "SI": 2524.661329979887
+          },
+          "files": {
+            "html": "lighthouse/reports/mobile/detalhe-run1.report.html",
+            "json": "lighthouse/reports/mobile/detalhe-run1.report.json"
+          }
+        },
+        {
+          "profile": "mobile",
+          "page": "detalhe",
+          "run": 2,
+          "scores": {
+            "performance": 76,
+            "accessibility": 100,
+            "best-practices": 100,
+            "seo": 100
+          },
+          "metrics": {
+            "FCP": 2197.146,
+            "LCP": 3800.026500000001,
+            "TBT": 404.5,
+            "CLS": 0,
+            "SI": 2433.7462158948547
+          },
+          "files": {
+            "html": "lighthouse/reports/mobile/detalhe-run2.report.html",
+            "json": "lighthouse/reports/mobile/detalhe-run2.report.json"
+          }
+        },
+        {
+          "profile": "mobile",
+          "page": "detalhe",
+          "run": 3,
+          "scores": {
+            "performance": 66,
+            "accessibility": 100,
+            "best-practices": 100,
+            "seo": 100
+          },
+          "metrics": {
+            "FCP": 2184.0006,
+            "LCP": 3726.8766499999992,
+            "TBT": 891.6874250000003,
+            "CLS": 0,
+            "SI": 2678.272382480769
+          },
+          "files": {
+            "html": "lighthouse/reports/mobile/detalhe-run3.report.html",
+            "json": "lighthouse/reports/mobile/detalhe-run3.report.json"
+          }
+        }
+      ]
+    },
+    {
+      "profile": "desktop",
+      "page": "inicio",
+      "pageName": "Início",
+      "path": "/",
+      "median": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "medianMetrics": {
+        "FCP": 520.0264,
+        "LCP": 800.5431999999998,
+        "TBT": 31.5,
+        "CLS": 0,
+        "SI": 735.7100465011581
+      },
+      "representativeRun": 2,
+      "runs": [
+        {
+          "profile": "desktop",
+          "page": "inicio",
+          "run": 1,
+          "scores": {
+            "performance": 99,
+            "accessibility": 100,
+            "best-practices": 100,
+            "seo": 100
+          },
+          "metrics": {
+            "FCP": 520.0264,
+            "LCP": 800.5431999999998,
+            "TBT": 35.49279999999982,
+            "CLS": 0,
+            "SI": 747.039882304189
+          },
+          "files": {
+            "html": "lighthouse/reports/desktop/inicio-run1.report.html",
+            "json": "lighthouse/reports/desktop/inicio-run1.report.json"
+          }
+        },
+        {
+          "profile": "desktop",
+          "page": "inicio",
+          "run": 2,
+          "scores": {
+            "performance": 100,
+            "accessibility": 100,
+            "best-practices": 100,
+            "seo": 100
+          },
+          "metrics": {
+            "FCP": 514.4649000000001,
+            "LCP": 793.3061999999998,
+            "TBT": 31.5,
+            "CLS": 0,
+            "SI": 735.7100465011581
+          },
+          "files": {
+            "html": "lighthouse/reports/desktop/inicio-run2.report.html",
+            "json": "lighthouse/reports/desktop/inicio-run2.report.json"
+          }
+        },
+        {
+          "profile": "desktop",
+          "page": "inicio",
+          "run": 3,
+          "scores": {
+            "performance": 100,
+            "accessibility": 100,
+            "best-practices": 100,
+            "seo": 100
+          },
+          "metrics": {
+            "FCP": 522.71905,
+            "LCP": 820.9039000000001,
+            "TBT": 14.000000000000057,
+            "CLS": 0,
+            "SI": 704.2864261817365
+          },
+          "files": {
+            "html": "lighthouse/reports/desktop/inicio-run3.report.html",
+            "json": "lighthouse/reports/desktop/inicio-run3.report.json"
+          }
+        }
+      ]
+    },
+    {
+      "profile": "desktop",
+      "page": "detalhe",
+      "pageName": "Detalhe do NFT",
+      "path": "/nft/emerald-ape-042",
+      "median": {
+        "performance": 99,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "medianMetrics": {
+        "FCP": 559.807125,
+        "LCP": 925.61425,
+        "TBT": 48.5,
+        "CLS": 0,
+        "SI": 767.0590770810786
+      },
+      "representativeRun": 1,
+      "runs": [
+        {
+          "profile": "desktop",
+          "page": "detalhe",
+          "run": 1,
+          "scores": {
+            "performance": 99,
+            "accessibility": 100,
+            "best-practices": 100,
+            "seo": 100
+          },
+          "metrics": {
+            "FCP": 584.6777749999999,
+            "LCP": 978.3555499999997,
+            "TBT": 11.999999999999943,
+            "CLS": 0,
+            "SI": 831.8914426719759
+          },
+          "files": {
+            "html": "lighthouse/reports/desktop/detalhe-run1.report.html",
+            "json": "lighthouse/reports/desktop/detalhe-run1.report.json"
+          }
+        },
+        {
+          "profile": "desktop",
+          "page": "detalhe",
+          "run": 2,
+          "scores": {
+            "performance": 99,
+            "accessibility": 100,
+            "best-practices": 100,
+            "seo": 100
+          },
+          "metrics": {
+            "FCP": 518.8441999999999,
+            "LCP": 896.5662000000001,
+            "TBT": 61,
+            "CLS": 0,
+            "SI": 755.931979577332
+          },
+          "files": {
+            "html": "lighthouse/reports/desktop/detalhe-run2.report.html",
+            "json": "lighthouse/reports/desktop/detalhe-run2.report.json"
+          }
+        },
+        {
+          "profile": "desktop",
+          "page": "detalhe",
+          "run": 3,
+          "scores": {
+            "performance": 99,
+            "accessibility": 100,
+            "best-practices": 100,
+            "seo": 100
+          },
+          "metrics": {
+            "FCP": 559.807125,
+            "LCP": 925.61425,
+            "TBT": 48.5,
+            "CLS": 0,
+            "SI": 767.0590770810786
+          },
+          "files": {
+            "html": "lighthouse/reports/desktop/detalhe-run3.report.html",
+            "json": "lighthouse/reports/desktop/detalhe-run3.report.json"
+          }
+        }
+      ]
+    }
+  ]
+}

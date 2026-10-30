@@ -16,5 +16,6 @@ export default {
   targets: { performance: 90, accessibility: 95, 'best-practices': 95, seo: 90 },
   /** Tempo máximo de uma medição; acima disso o Chrome é encerrado e a medição repetida. */
   runTimeoutMs: 120_000,
-  retries: 2,
+  /** Novas tentativas por medição (falha, travamento ou tempo esgotado). */
+  retries: 4,
 }
