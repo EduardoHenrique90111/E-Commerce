@@ -22,10 +22,11 @@ Os comandos podem ser digitados no **PowerShell** ou no **Prompt de Comando**.
 ## 2. Extraia o projeto
 
 1. Clique com o botão direito no ZIP → **Extrair tudo…**
-2. Escolha uma pasta curta e fora do OneDrive, por exemplo `C:\projetos\kurio`
-   (caminhos longos e pastas sincronizadas deixam a instalação lenta ou causam erros de arquivo em uso).
-3. Abra o PowerShell nessa pasta: no Explorador de Arquivos, abra a pasta, clique na barra de endereço,
-   digite `powershell` e pressione Enter. Ou:
+2. Escolha uma pasta curta e fora do OneDrive, por exemplo `C:\projetos`. O ZIP já contém a pasta `kurio`,
+   então o projeto fica em `C:\projetos\kurio` (caminhos longos e pastas sincronizadas deixam a instalação
+   lenta ou causam erros de arquivo em uso).
+3. Abra o PowerShell na pasta `kurio`: no Explorador de Arquivos, abra a pasta, clique na barra de
+   endereço, digite `powershell` e pressione Enter. Ou:
 
    ```powershell
    cd C:\projetos\kurio
