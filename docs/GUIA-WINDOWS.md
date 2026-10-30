@@ -108,7 +108,7 @@ são regressões. Há duas opções:
   Playwright via Docker Desktop:
 
   ```powershell
-  docker run --rm -it -v "${PWD}:/work" -w /work mcr.microsoft.com/playwright:v1.63.0-noble `
+  docker run --rm -it -v "${PWD}:/work" -w /work mcr.microsoft.com/playwright:v1.64.1-noble `
     bash -c "npm ci && npm run test:visual"
   ```
 
