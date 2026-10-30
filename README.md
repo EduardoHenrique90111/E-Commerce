@@ -169,6 +169,10 @@ npm run test:report
   sistema operacional, a renderização de texto difere: rode a regressão visual no contêiner oficial do
   Playwright (ver guia do Windows) ou gere baselines locais com `npm run test:visual:update`.
 
+Rodada final desta entrega (30/10/2026): **114 testes E2E e 8 de regressão visual passaram**; 2 casos são
+ignorados de propósito por viewport (navegação por teclado físico só no desktop; drawer de navegação só no
+mobile). O ZIP inclui o relatório HTML dessa rodada em `reports/playwright`.
+
 Cobertura: busca, filtros combinados, ordenação, paginação e histórico; acesso direto e 404; cadastro,
 login, expiração, logout e troca de usuário; favoritos com falha e rollback; carrinho (quantidades,
 remoção, cupom, persistência após refresh/login); compra completa até o recibo; pagamento recusado,

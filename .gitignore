@@ -13,3 +13,4 @@ lighthouse/.tmp
 .vscode/*
 !.vscode/extensions.json
 .idea
+playwright-report
