@@ -16,7 +16,7 @@
     "typecheck": "tsc -b --pretty",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "test:e2e": "playwright test",
+    "test:e2e": "playwright test --project=desktop-chromium --project=mobile-chromium",
     "test:e2e:ui": "playwright test --ui",
     "test:e2e:desktop": "playwright test --project=desktop-chromium",
     "test:e2e:mobile": "playwright test --project=mobile-chromium",
@@ -27,7 +27,8 @@
     "assets:generate": "node scripts/generate-art.mjs",
     "icons:generate": "node scripts/generate-icons.mjs",
     "msw:init": "msw init public --save",
-    "check": "npm run typecheck && npm run lint && npm run build"
+    "check": "npm run typecheck && npm run lint && npm run build",
+    "test:all": "playwright test"
   },
   "dependencies": {
     "@mswjs/socket.io-binding": "0.1.1",
