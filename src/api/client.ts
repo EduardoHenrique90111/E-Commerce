@@ -8,6 +8,7 @@
 import axios, { type AxiosRequestConfig } from 'axios'
 import type { z } from 'zod'
 import { env } from '@/env'
+import { isNetworkReady, networkReady } from '@/lib/network-ready'
 import { guestCartStore, tokenStore } from '@/session/token-store'
 import { HEADERS } from './contracts'
 import { ApiError, toApiError } from './errors'
@@ -20,6 +21,10 @@ export const http = axios.create({
   baseURL: env.apiBaseUrl,
   timeout: DEFAULT_TIMEOUT_MS,
   headers: { Accept: 'application/json' },
+  // A API autentica por Bearer token: nenhum cookie é enviado (credentials: 'omit').
+  // O adaptador fetch também evita que o MSW leia document.cookie a cada handler avaliado.
+  adapter: 'fetch',
+  withCredentials: false,
 })
 
 type AuthFailureListener = (error: ApiError) => void
@@ -29,7 +34,9 @@ export function onAuthFailure(listener: AuthFailureListener): () => void {
   return () => authFailureListeners.delete(listener)
 }
 
-http.interceptors.request.use((config) => {
+http.interceptors.request.use(async (config) => {
+  // aguarda a camada de rede (MSW) na inicialização; o timeout do Axios só conta depois do envio
+  if (!isNetworkReady()) await networkReady()
   const token = tokenStore.get()
   if (token) config.headers.set('Authorization', `Bearer ${token}`)
   const guest = guestCartStore.get()

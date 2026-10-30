@@ -2,7 +2,8 @@
  * Configuração e cenários da camada de mocks.
  *
  * O cenário ativo pode vir de:
- *  1. query string `?scenario=<nome>` (aplicado e persistido; `&reset=1` restaura os dados),
+ *  1. query string `?scenario=<nome>` (aplicado e persistido; `&reset=1` restaura os dados) —
+ *     lida por `takeMockUrlParams()` antes da criação do router,
  *  2. localStorage (`kurio:mock:config`), usado também pelos testes via `addInitScript`,
  *  3. padrão (`default`).
  */
@@ -214,8 +215,14 @@ export function onConfigChange(listener: (c: MockConfig) => void): () => void {
   return () => listeners.delete(listener)
 }
 
-/** Lê a configuração persistida e aplica `?scenario=` / `?reset=1` da URL. */
-export function initConfig(): { resetRequested: boolean; scenarioFromUrl: boolean } {
+/**
+ * Lê a configuração persistida e aplica `?scenario=` / `?reset=1` (já removidos da URL por
+ * `takeMockUrlParams()` antes da criação do router).
+ */
+export function initConfig(params: { scenario: string | null; reset: boolean } = { scenario: null, reset: false }): {
+  resetRequested: boolean
+  scenarioFromUrl: boolean
+} {
   let stored: Partial<MockConfig> | null = null
   try {
     const raw = localStorage.getItem(CONFIG_KEY)
@@ -224,22 +231,8 @@ export function initConfig(): { resetRequested: boolean; scenarioFromUrl: boolea
     stored = null
   }
   const base = stored && isScenario(stored.scenario) ? configForScenario(stored.scenario, stored) : DEFAULT_CONFIG
-
-  const url = new URL(window.location.href)
-  const fromUrl = url.searchParams.get('scenario')
-  const resetRequested = url.searchParams.get('reset') === '1'
-  let scenarioFromUrl = false
-  if (isScenario(fromUrl)) {
-    current = configForScenario(fromUrl)
-    scenarioFromUrl = true
-  } else {
-    current = base
-  }
-  if (fromUrl !== null || resetRequested) {
-    url.searchParams.delete('scenario')
-    url.searchParams.delete('reset')
-    window.history.replaceState(window.history.state, '', url.pathname + url.search + url.hash)
-  }
+  const scenarioFromUrl = isScenario(params.scenario)
+  current = isScenario(params.scenario) ? configForScenario(params.scenario) : base
   setConfig(current)
-  return { resetRequested, scenarioFromUrl }
+  return { resetRequested: params.reset, scenarioFromUrl }
 }

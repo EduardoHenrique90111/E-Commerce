@@ -24,8 +24,11 @@ export function formatEth(micro: number, options: { decimals?: number; withUnit?
 }
 
 /** Versão para leitores de tela (ex.: "1,10 ether"). */
+const spokenFmt = new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 6 })
+
+/** Valor por extenso para leitores de tela (formatador reutilizado: criar Intl a cada chamada é caro). */
 export function spokenEth(micro: number): string {
-  return `${(micro / 1_000_000).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 6 })} ether`
+  return `${spokenFmt.format(micro / 1_000_000)} ether`
 }
 
 export function ethToMicro(eth: number): number {

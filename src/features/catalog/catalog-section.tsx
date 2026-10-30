@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useDeferredValue, useEffect, useRef, useState } from 'react'
 import { Link } from '@tanstack/react-router'
 import { ChevronLeft, ChevronRight, Funnel, RefreshCw, Search, TriangleAlert, X } from '@/components/icons'
 import { NftCard, NftCardSkeleton } from '@/components/nft/nft-card'
@@ -13,6 +13,7 @@ import { SORTS, type CatalogSort, type CollectionSlug, type Network } from '@/ap
 import { toApiError } from '@/api/errors'
 import { useCatalog, useFeatured } from '@/queries/catalog'
 import { COLLECTION_LABEL, NETWORK_LABEL, SORT_LABEL } from '@/lib/format'
+import { useMediaQuery } from '@/lib/use-media-query'
 import { cn } from '@/lib/utils'
 import { FiltersPanel } from './filters'
 import { hasActiveFilters, toCatalogQuery, type CatalogSearch } from './search'
@@ -137,7 +138,10 @@ export function CatalogSection({ search, onChange, interactive = true }: Props) 
   const query = toCatalogQuery(search)
   const catalog = useCatalog(query)
   const [filtersOpen, setFiltersOpen] = useState(false)
-  const data = catalog.data
+  const isDesktop = useMediaQuery('(min-width: 1024px)')
+  // A grade é renderizada a partir do valor adiado: o React a monta em segundo plano (fatiada),
+  // sem uma tarefa longa no thread principal quando a resposta chega. O skeleton permanece até lá.
+  const data = useDeferredValue(catalog.data)
   const page = query.page ?? 1
   const activeChips = [
     ...(search.q ? [{ key: 'q', label: `“${search.q}”`, clear: { q: undefined } }] : []),
@@ -148,7 +152,7 @@ export function CatalogSection({ search, onChange, interactive = true }: Props) 
       : []),
   ]
   const isRefreshing = catalog.isFetching && !catalog.isPending
-  const showSkeleton = catalog.isPending || (catalog.isPlaceholderData && catalog.isFetching && !data?.items.length)
+  const showSkeleton = (data === undefined && !catalog.isError) || (catalog.isPlaceholderData && catalog.isFetching && !data?.items.length)
 
   return (
     <section id="catalogo" aria-labelledby="catalog-title" className="container-kurio scroll-mt-20 pt-10 md:pt-14">
@@ -156,12 +160,15 @@ export function CatalogSection({ search, onChange, interactive = true }: Props) 
         Catálogo de NFTs
       </h2>
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-[220px_minmax(0,1fr)]">
-        <div className="hidden flex-col gap-6 lg:flex">
-          <div className="rounded-lg bg-surface p-4">
-            <FiltersPanel search={search} facets={data?.facets} onChange={onChange} idPrefix="side" />
+        {/* barra lateral só é montada no desktop; abaixo de 1024 px os filtros ficam no drawer */}
+        {isDesktop ? (
+          <div className="flex flex-col gap-6">
+            <div className="rounded-lg bg-surface p-4">
+              <FiltersPanel search={search} facets={data?.facets} onChange={onChange} idPrefix="side" />
+            </div>
+            <FeaturedSidebarCard />
           </div>
-          <FeaturedSidebarCard />
-        </div>
+        ) : null}
 
         <div className="min-w-0">
           <div className="flex flex-col gap-3 border-b border-border pb-3 md:flex-row md:items-center md:justify-between">
@@ -230,7 +237,7 @@ export function CatalogSection({ search, onChange, interactive = true }: Props) 
 
           <div className="flex min-h-9 flex-wrap items-center gap-2 py-3">
             <p className="text-[0.6875rem] text-muted-foreground" role="status" aria-live="polite" data-testid="results-count">
-              {catalog.isPending ? 'Carregando NFTs…' : data ? `${data.total} ${data.total === 1 ? 'NFT encontrado' : 'NFTs encontrados'}` : ''}
+              {data ? `${data.total} ${data.total === 1 ? 'NFT encontrado' : 'NFTs encontrados'}` : catalog.isError ? '' : 'Carregando NFTs…'}
             </p>
             {activeChips.map((chip) => (
               <button
@@ -293,9 +300,10 @@ export function CatalogSection({ search, onChange, interactive = true }: Props) 
                 </Alert>
               ) : null}
               <ul className={cn('grid grid-cols-2 gap-3 transition-opacity sm:grid-cols-3 md:gap-4', isRefreshing && 'opacity-70')} data-testid="catalog-grid" aria-busy={isRefreshing || undefined}>
-                {data.items.map((nft) => (
+                {data.items.map((nft, index) => (
                   <li key={nft.id}>
-                    <NftCard nft={nft} />
+                    {/* a primeira linha fica acima da dobra no mobile: carrega sem lazy e com prioridade alta */}
+                    <NftCard nft={nft} priority={page === 1 && index < 2} />
                   </li>
                 ))}
               </ul>

@@ -1,5 +1,7 @@
 import { Star } from '@/components/icons'
 
+const ratingFmt = new Intl.NumberFormat('pt-BR')
+
 export function Stars({ rating, count }: { rating: number; count?: number }) {
   const full = Math.round(rating)
   return (
@@ -9,7 +11,7 @@ export function Stars({ rating, count }: { rating: number; count?: number }) {
           <Star key={i} size={13} fill={i < full ? 'currentColor' : 'none'} />
         ))}
       </span>
-      <span className="sr-only">Nota {rating.toLocaleString('pt-BR')} de 5.</span>
+      <span className="sr-only">Nota {ratingFmt.format(rating)} de 5.</span>
       {count !== undefined ? <span>({count} avaliações de colecionadores)</span> : null}
     </span>
   )

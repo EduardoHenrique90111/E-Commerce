@@ -13,11 +13,14 @@ import type { QueryClient } from '@tanstack/react-query'
 import type { Socket } from 'socket.io-client'
 import { nftUpdatedEventSchema, orderUpdatedEventSchema, type RealtimeEvent } from '@/api/contracts'
 import { env } from '@/env'
+import { whenIdle } from '@/lib/idle'
+import { networkReady } from '@/lib/network-ready'
 import { qk } from '@/queries/keys'
 import { applyNftUpdated, applyOrderUpdated } from './apply'
 import { emitNotice, setConnectionStatus } from './notices'
 
 const SEEN_LIMIT = 500
+let startupDone = false
 
 export class RealtimeClient {
   private socket: Socket | null = null
@@ -42,6 +45,15 @@ export class RealtimeClient {
     this.hasConnected = false
     setConnectionStatus('connecting')
 
+    // o socket.io-client captura o WebSocket global ao carregar: só depois da camada de rede (MSW)
+    await networkReady()
+    // primeira conexão da página: aguarda o navegador ficar ocioso para não disputar a carga inicial.
+    // Eventos desse intervalo não se perdem em efeito: pedidos pendentes também são consultados
+    // periodicamente e a cotação é revalidada no servidor antes de confirmar a compra.
+    if (!startupDone) {
+      await whenIdle()
+      startupDone = true
+    }
     const { io } = await import('socket.io-client')
     if (generation !== this.generation) return // outra sessão assumiu enquanto carregava
 

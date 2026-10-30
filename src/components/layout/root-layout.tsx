@@ -2,6 +2,8 @@ import { lazy, Suspense } from 'react'
 import { Outlet } from '@tanstack/react-router'
 import { Toaster } from '@/components/ui/sonner'
 import { env } from '@/env'
+import { whenIdle } from '@/lib/idle'
+import { networkReady } from '@/lib/network-ready'
 import { Footer } from './footer'
 import { Header } from './header'
 import { LiveAnnouncer } from './live-announcer'
@@ -10,7 +12,15 @@ import { PendingOrderBanner } from './pending-order-banner'
 import { RealtimeBridge } from './realtime-bridge'
 import { SessionWatcher } from './session-watcher'
 
-const MockDevtools = env.mocksEnabled && env.mockDevtools ? lazy(() => import('@/mocks/devtools/mock-devtools')) : null
+// o painel depende da API de controle (window.__KURIO_MOCK__), disponível quando o MSW inicia
+const MockDevtools =
+  env.mocksEnabled && env.mockDevtools
+    ? lazy(() =>
+        networkReady()
+          .then(() => whenIdle())
+          .then(() => import('@/mocks/devtools/mock-devtools')),
+      )
+    : null
 /** Os testes de regressão visual ocultam o painel (localStorage "kurio:mock:devtools" = "off"). */
 const devtoolsHidden = () => {
   try {

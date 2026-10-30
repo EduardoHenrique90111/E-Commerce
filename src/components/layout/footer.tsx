@@ -77,6 +77,9 @@ function Newsletter() {
   )
 }
 
+
+/** Alvo mínimo de 24 px (WCAG 2.5.8) mantendo o ritmo visual da lista do layout. */
+const FOOTER_LINK = 'inline-flex min-h-6 items-center py-1 leading-tight hover:text-primary'
 export function Footer() {
   return (
     <footer className="mt-16 pb-20 md:pb-8">
@@ -106,33 +109,33 @@ export function Footer() {
             <h2 id="footer-profile" className="mb-2 font-bold">
               Meu perfil
             </h2>
-            <ul className="flex flex-col gap-1.5 text-muted-foreground">
-              <li><Link to="/perfil" className="hover:text-primary">Meu perfil</Link></li>
-              <li><Link to="/favoritos" className="hover:text-primary">Minha coleção</Link></li>
-              <li><Link to="/pedidos" className="hover:text-primary">Atividade</Link></li>
-              <li><Link to="/perfil/carteiras" className="hover:text-primary">Carteiras</Link></li>
-              <li><Link to="/favoritos" className="hover:text-primary">Lista de desejos</Link></li>
+            <ul className="flex flex-col text-muted-foreground">
+              <li><Link to="/perfil" className={FOOTER_LINK}>Meu perfil</Link></li>
+              <li><Link to="/favoritos" className={FOOTER_LINK}>Minha coleção</Link></li>
+              <li><Link to="/pedidos" className={FOOTER_LINK}>Atividade</Link></li>
+              <li><Link to="/perfil/carteiras" className={FOOTER_LINK}>Carteiras</Link></li>
+              <li><Link to="/favoritos" className={FOOTER_LINK}>Lista de desejos</Link></li>
             </ul>
           </nav>
           <nav aria-labelledby="footer-help">
             <h2 id="footer-help" className="mb-2 font-bold">
               Central de ajuda
             </h2>
-            <ul className="flex flex-col gap-1.5 text-muted-foreground">
-              <li><Link to="/" hash="diario" className="hover:text-primary">Como comprar NFTs</Link></li>
-              <li><Link to="/" hash="diario" className="hover:text-primary">Carteiras e segurança</Link></li>
-              <li><Link to="/" hash="diario" className="hover:text-primary">Raridade e procedência</Link></li>
-              <li><Link to="/pedidos" className="hover:text-primary">Acompanhar pedidos</Link></li>
+            <ul className="flex flex-col text-muted-foreground">
+              <li><Link to="/" hash="diario" className={FOOTER_LINK}>Como comprar NFTs</Link></li>
+              <li><Link to="/" hash="diario" className={FOOTER_LINK}>Carteiras e segurança</Link></li>
+              <li><Link to="/" hash="diario" className={FOOTER_LINK}>Raridade e procedência</Link></li>
+              <li><Link to="/pedidos" className={FOOTER_LINK}>Acompanhar pedidos</Link></li>
             </ul>
           </nav>
           <nav aria-labelledby="footer-collections">
             <h2 id="footer-collections" className="mb-2 font-bold">
               Coleções
             </h2>
-            <ul className="flex flex-col gap-1.5 text-muted-foreground">
+            <ul className="flex flex-col text-muted-foreground">
               {(['arte-digital', 'fotografia', 'musica', 'arte-3d', 'colecionaveis'] as const).map((c) => (
                 <li key={c}>
-                  <Link to="/" search={{ col: c }} hash="catalogo" className="hover:text-primary">
+                  <Link to="/" search={{ col: c }} hash="catalogo" className={FOOTER_LINK}>
                     {COLLECTION_LABEL[c]}
                   </Link>
                 </li>

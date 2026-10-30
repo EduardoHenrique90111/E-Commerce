@@ -12,7 +12,7 @@ import { HomePage } from '@/features/catalog/home-page'
 import { validateCatalogSearch } from '@/features/catalog/search'
 import { NftDetailPage } from '@/features/nft/nft-detail-page'
 import { NotFoundPage, RouteErrorPage } from '@/features/system/not-found'
-import { catalogQueryOptions, nftQueryOptions } from '@/queries/catalog'
+import { catalogQueryOptions, nftQueryOptions, relatedQueryOptions } from '@/queries/catalog'
 import { toCatalogQuery } from '@/features/catalog/search'
 import { sessionQueryOptions } from '@/session/session'
 
@@ -41,7 +41,10 @@ const indexRoute = createRoute({
 const nftRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/nft/$nftId',
-  loader: ({ context, params }) => void context.queryClient.prefetchQuery(nftQueryOptions(params.nftId)),
+  loader: ({ context, params }) => {
+    void context.queryClient.prefetchQuery(nftQueryOptions(params.nftId))
+    void context.queryClient.prefetchQuery(relatedQueryOptions(params.nftId))
+  },
   component: function NftRoute() {
     const { nftId } = nftRoute.useParams()
     return <NftDetailPage nftId={nftId} />

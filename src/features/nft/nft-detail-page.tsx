@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useDeferredValue, useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate } from '@tanstack/react-router'
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
 import { toast } from 'sonner'
@@ -26,23 +26,56 @@ import { RelatedCarousel } from './related-carousel'
 const MAIN_SIZES = '(min-width: 1024px) 420px, (min-width: 768px) 45vw, 92vw'
 
 function DetailSkeleton() {
+  // Espelha a estrutura carregada (galeria, coluna de informações e abas) e ocupa ao menos a altura
+  // da janela: o rodapé e as seções seguintes não ficam visíveis — nem são empurrados — durante a carga.
   return (
-    <div className="grid grid-cols-1 gap-8 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]" data-testid="nft-detail-skeleton" aria-busy="true" aria-label="Carregando NFT">
-      <div className="flex gap-3">
-        <div className="hidden w-16 flex-col gap-3 md:flex">
-          {Array.from({ length: 4 }, (_, i) => (
-            <Skeleton key={i} className="aspect-square w-full" />
-          ))}
+    <div className="min-h-screen" data-testid="nft-detail-skeleton" aria-busy="true" aria-label="Carregando NFT">
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
+        {/* mesmas dimensões da galeria carregada: miniaturas abaixo no mobile e à esquerda no desktop */}
+        <div className="flex flex-col-reverse gap-3 md:flex-row md:items-start">
+          <div className="flex gap-2 md:w-16 md:flex-col">
+            {Array.from({ length: 4 }, (_, i) => (
+              <Skeleton key={i} className="aspect-square w-16 shrink-0 md:w-full" />
+            ))}
+          </div>
+          <Skeleton className="aspect-square w-full md:flex-1" />
         </div>
-        <Skeleton className="aspect-square flex-1" />
+        <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-1.5">
+            <Skeleton className="h-7 w-2/3" />
+            <div className="flex items-center justify-between gap-2">
+              <Skeleton className="h-6 w-24" />
+              <Skeleton className="h-4 w-36" />
+            </div>
+          </div>
+          <div className="flex flex-col gap-1.5">
+            <Skeleton className="h-3.5 w-28" />
+            <Skeleton className="h-14 w-full" />
+          </div>
+          <div className="flex flex-col gap-2">
+            <Skeleton className="h-3.5 w-16" />
+            <div className="flex flex-wrap gap-2">
+              {Array.from({ length: 3 }, (_, i) => (
+                <Skeleton key={i} className="h-[3.75rem] w-28" />
+              ))}
+            </div>
+          </div>
+          <div className="flex flex-wrap items-center gap-3">
+            <Skeleton className="h-9 w-32" />
+            <Skeleton className="h-9 w-32" />
+          </div>
+          <Skeleton className="h-3 w-44" />
+          <div className="flex flex-col gap-1.5 border-t border-border pt-4">
+            {Array.from({ length: 5 }, (_, i) => (
+              <Skeleton key={i} className="h-4 w-3/4" />
+            ))}
+          </div>
+          <Skeleton className="h-8 w-48" />
+        </div>
       </div>
-      <div className="flex flex-col gap-4">
-        <Skeleton className="h-7 w-2/3" />
-        <Skeleton className="h-5 w-24" />
-        <Skeleton className="h-4 w-1/2" />
-        <Skeleton className="h-20 w-full" />
-        <Skeleton className="h-10 w-3/4" />
-        <Skeleton className="h-10 w-1/2" />
+      <div className="mt-10 flex flex-col gap-3">
+        <Skeleton className="h-9 w-80 max-w-full" />
+        <Skeleton className="h-24 w-full" />
       </div>
     </div>
   )
@@ -50,7 +83,10 @@ function DetailSkeleton() {
 
 export function NftDetailPage({ nftId }: { nftId: string }) {
   const nft = useNft(nftId)
+  // conteúdo renderizado a partir do valor adiado (renderização fatiada em segundo plano)
+  const data = useDeferredValue(nft.data)
   const error = nft.error ? toApiError(nft.error) : null
+  const pending = data === undefined && !error
   usePageMeta(
     nft.data
       ? {
@@ -84,9 +120,9 @@ export function NftDetailPage({ nftId }: { nftId: string }) {
         </ol>
       </nav>
 
-      {nft.isPending ? (
+      {pending ? (
         <DetailSkeleton />
-      ) : error && !nft.data ? (
+      ) : error && !data ? (
         <Alert variant="destructive" role="alert">
           <TriangleAlert size={16} />
           <div className="flex flex-col gap-2">
@@ -99,11 +135,12 @@ export function NftDetailPage({ nftId }: { nftId: string }) {
             </div>
           </div>
         </Alert>
-      ) : nft.data ? (
-        <NftDetailContent nft={nft.data} />
+      ) : data ? (
+        <NftDetailContent nft={data} />
       ) : null}
 
-      <RelatedCarousel nftId={nftId} title="Mais desta coleção" />
+      {/* montado depois do NFT principal: não é empurrado quando o conteúdo substitui o skeleton */}
+      {pending ? null : <RelatedCarousel nftId={nftId} title="Mais desta coleção" />}
     </div>
   )
 }
@@ -182,7 +219,8 @@ function NftDetailContent({ nft }: { nft: NftDetail }) {
               </button>
             ))}
           </div>
-          <div className="relative flex-1 self-start overflow-hidden rounded-lg bg-surface p-3">
+          {/* no mobile (coluna) a imagem ocupa toda a largura; self-start só no layout em linha */}
+          <div className="relative flex-1 overflow-hidden rounded-lg bg-surface p-3 md:self-start">
             <div className="overflow-hidden rounded-md">
               <NftImage image={image} sizes={MAIN_SIZES} priority={imageIndex === 0} />
             </div>

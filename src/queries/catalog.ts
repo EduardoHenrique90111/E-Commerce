@@ -30,8 +30,11 @@ export function useNft(id: string) {
   return useQuery(nftQueryOptions(id))
 }
 
+export const relatedQueryOptions = (id: string) =>
+  queryOptions({ queryKey: qk.related(id), queryFn: ({ signal }) => api.nfts.related(id, { signal }), staleTime: 60_000 })
+
 export function useRelated(id: string) {
-  return useQuery({ queryKey: qk.related(id), queryFn: ({ signal }) => api.nfts.related(id, { signal }), staleTime: 60_000 })
+  return useQuery(relatedQueryOptions(id))
 }
 
 /** Destaques da home: os 4 mais relevantes. */

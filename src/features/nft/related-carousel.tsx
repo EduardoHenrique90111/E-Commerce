@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useDeferredValue, useRef } from 'react'
 import { ChevronLeft, ChevronRight } from '@/components/icons'
 import { NftCard, NftCardSkeleton } from '@/components/nft/nft-card'
 import { Button } from '@/components/ui/button'
@@ -7,6 +7,7 @@ import { useRelated } from '@/queries/catalog'
 /** Carrossel horizontal acessível ("Mais desta coleção" / "Colecionadores também viram"). */
 export function RelatedCarousel({ nftId, title }: { nftId: string; title: string }) {
   const related = useRelated(nftId)
+  const items = useDeferredValue(related.data?.items)
   const scroller = useRef<HTMLUListElement>(null)
   const scrollBy = (dir: 1 | -1) => scroller.current?.scrollBy({ left: dir * scroller.current.clientWidth * 0.8, behavior: 'smooth' })
   const headingId = `related-${nftId}`
@@ -26,13 +27,13 @@ export function RelatedCarousel({ nftId, title }: { nftId: string; title: string
         </div>
       </div>
       <ul ref={scroller} className="flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 [scrollbar-width:thin]" tabIndex={-1}>
-        {related.isPending
+        {items === undefined && !related.isError
           ? Array.from({ length: 5 }, (_, i) => (
               <li key={i} className="w-[44%] shrink-0 snap-start sm:w-[30%] lg:w-[calc(20%-0.6rem)]">
                 <NftCardSkeleton />
               </li>
             ))
-          : related.data?.items.map((nft) => (
+          : items?.map((nft) => (
               <li key={nft.id} className="w-[44%] shrink-0 snap-start sm:w-[30%] lg:w-[calc(20%-0.6rem)]">
                 <NftCard nft={nft} />
               </li>

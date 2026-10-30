@@ -8,7 +8,12 @@ async function settle(page: Page) {
     await document.fonts.ready
     await Promise.all(
       Array.from(document.images).map((img) =>
-        img.complete ? Promise.resolve() : new Promise((r) => img.addEventListener('load', r, { once: true }) || img.addEventListener('error', r, { once: true })),
+        img.complete
+          ? Promise.resolve()
+          : new Promise((r) => {
+              img.addEventListener('load', r, { once: true })
+              img.addEventListener('error', r, { once: true })
+            }),
       ),
     )
   })

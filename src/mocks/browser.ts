@@ -2,8 +2,10 @@
  * Inicialização da camada de mocks no navegador (desenvolvimento, demonstração e testes).
  * Carregado sob demanda pelo main.tsx apenas quando VITE_ENABLE_MOCKS=true.
  */
+import { http, passthrough } from 'msw'
 import { setupWorker } from 'msw/browser'
 import { initConfig } from './config'
+import type { MockUrlParams } from './url-params'
 import { createControl, type KurioMockControl } from './control'
 import { DB_KEY, loadDb, reloadDbFromStorage, resetDb } from './db'
 import { resumePendingOrders } from './domain'
@@ -22,7 +24,19 @@ declare global {
   }
 }
 
+/**
+ * O service worker do MSW encaminha à página todas as requisições (scripts, imagens, fontes).
+ * Este primeiro handler devolve as que não são da API direto para a rede, sem avaliar os demais
+ * handlers — cada avaliação custa parsing de URL e leitura de cookies no thread principal.
+ * O comportamento é o mesmo de uma requisição não tratada (`onUnhandledRequest: 'bypass'`).
+ */
+const nonApiPassthrough = http.all(
+  ({ request }) => !new URL(request.url).pathname.startsWith('/api/'),
+  () => passthrough(),
+)
+
 export const handlers = [
+  nonApiPassthrough,
   ...authHandlers,
   ...catalogHandlers,
   ...favoritesHandlers,
@@ -32,8 +46,8 @@ export const handlers = [
   ...miscHandlers,
 ]
 
-export async function startMocks(): Promise<void> {
-  const { resetRequested } = initConfig()
+export async function startMocks(params?: MockUrlParams): Promise<void> {
+  const { resetRequested } = initConfig(params)
   loadDb()
   if (resetRequested) resetDb()
   resumePendingOrders()
