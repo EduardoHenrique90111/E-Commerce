@@ -117,6 +117,8 @@ export class Kurio {
       for (const el of Array.from(document.querySelectorAll<HTMLElement>('body *'))) {
         const r = el.getBoundingClientRect()
         if (r.width === 0 || r.height === 0) continue
+        const cs = getComputedStyle(el)
+        if (cs.opacity === '0' || cs.visibility === 'hidden' || el.closest('[aria-hidden="true"], .sr-only')) continue
         if (r.right <= vw + 1 && r.left >= -1) continue
         // ignora conteúdo dentro de contêineres com rolagem horizontal intencional ou recortados
         let p = el.parentElement

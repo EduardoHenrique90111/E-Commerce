@@ -190,7 +190,7 @@ export function CatalogSection({ search, onChange, interactive = true }: Props) 
             </div>
             <div className="flex w-full flex-col gap-2 sm:flex-row sm:items-center md:w-auto">
               <SearchBox value={search.q ?? ''} onCommit={(q) => onChange({ q, page: undefined })} autoFocus={interactive && !!search.focus} />
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap items-center gap-2">
                 <Sheet open={filtersOpen} onOpenChange={setFiltersOpen}>
                   <SheetTrigger asChild>
                     <Button variant="outline" size="sm" className="h-9 lg:hidden" data-testid="open-filters">
@@ -210,9 +210,10 @@ export function CatalogSection({ search, onChange, interactive = true }: Props) 
                 <label htmlFor="catalog-sort" className="text-[0.6875rem] whitespace-nowrap text-muted-foreground">
                   Ordenar por:
                 </label>
+                <div className="min-w-36 flex-1 sm:flex-none">
                 <NativeSelect
                   id="catalog-sort"
-                  className="h-9 w-40 text-xs"
+                  className="h-9 w-full text-xs sm:w-40"
                   value={search.sort ?? 'relevance'}
                   onChange={(e) => onChange({ sort: e.target.value === 'relevance' ? undefined : (e.target.value as CatalogSort), page: undefined })}
                 >
@@ -222,6 +223,7 @@ export function CatalogSection({ search, onChange, interactive = true }: Props) 
                     </option>
                   ))}
                 </NativeSelect>
+                </div>
               </div>
             </div>
           </div>

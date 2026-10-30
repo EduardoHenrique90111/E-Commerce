@@ -132,10 +132,16 @@ export function resetRequestCounter(): void {
   requestCounter = 0
 }
 
-function matchFailure(request: Request, path: string): FailureRule | undefined {
+function matchFailure(request: Request, url: URL): FailureRule | undefined {
   const config = getConfig()
+  const queryMatches = (f: FailureRule) =>
+    !f.query || Object.entries(f.query).every(([k, v]) => (v === null ? !url.searchParams.has(k) : url.searchParams.get(k) === v))
   const idx = config.failures.findIndex(
-    (f) => (!f.method || f.method.toUpperCase() === request.method) && path.startsWith(f.path) && (f.times === undefined || f.times > 0),
+    (f) =>
+      (!f.method || f.method.toUpperCase() === request.method) &&
+      url.pathname.startsWith(f.path) &&
+      queryMatches(f) &&
+      (f.times === undefined || f.times > 0),
   )
   if (idx === -1) return undefined
   const rule = config.failures[idx]
@@ -160,7 +166,7 @@ export async function simulateNetwork(request: Request): Promise<Response | unde
     return HttpResponse.error()
   }
 
-  const failure = matchFailure(request, url.pathname)
+  const failure = matchFailure(request, url)
   if (failure) {
     if (failure.status === 'network') {
       await delay(200)

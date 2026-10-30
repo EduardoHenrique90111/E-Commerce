@@ -32,6 +32,8 @@ export interface FailureRule {
   method?: string
   /** Prefixo do caminho, ex.: `/api/nfts` ou `/api/favorites`. */
   path: string
+  /** Restrições de query string (valor `null` = parâmetro ausente). */
+  query?: Record<string, string | null>
   /** Status HTTP, `network` (conexão indisponível) ou `timeout` (sem resposta). */
   status: number | 'network' | 'timeout'
   /** Quantas vezes falhar antes de voltar ao normal (omitido = sempre). */
@@ -111,8 +113,8 @@ export const SCENARIOS: Record<ScenarioName, ScenarioDefinition> = {
   offline: { label: 'Sem conexão', description: 'Toda requisição REST falha por indisponibilidade de rede.', config: { offline: true } },
   'server-error': {
     label: 'Erro 500 recuperável',
-    description: 'GET /api/nfts falha 3 vezes com HTTP 500 e depois volta a responder.',
-    config: { failures: [{ method: 'GET', path: '/api/nfts', status: 500, times: 3, code: 'INTERNAL' }] },
+    description: 'A listagem do catálogo (GET /api/nfts) falha 3 vezes com HTTP 500 e depois volta a responder.',
+    config: { failures: [{ method: 'GET', path: '/api/nfts', query: { pageSize: null }, status: 500, times: 3, code: 'INTERNAL' }] },
   },
   'session-short': {
     label: 'Sessão curta',

@@ -73,6 +73,7 @@ function Checkout({ userId, defaultName, defaultEmail }: { userId: string; defau
   const [walletError, setWalletError] = useState<string>()
   const [reviewOpen, setReviewOpen] = useState(false)
   const formRef = useRef<HTMLFormElement>(null)
+  const reviewButtonRef = useRef<HTMLButtonElement>(null)
   const placeOrder = usePlaceOrder(userId)
   const savedAttempt = useMemo(() => loadAttempt<CreateOrderRequest>(userId), [userId, placeOrder.phase])
 
@@ -351,7 +352,7 @@ function Checkout({ userId, defaultName, defaultEmail }: { userId: string; defau
               </AlertDescription>
             </Alert>
           ) : null}
-          <Button type="submit" size="lg" className="w-full" disabled={!preview.data?.valid} data-testid="review-button">
+          <Button ref={reviewButtonRef} type="submit" size="lg" className="w-full" disabled={!preview.data?.valid} data-testid="review-button">
             Revisar pedido
           </Button>
           <p className="text-center text-[0.6875rem] text-subtle-foreground">Você confirma o pagamento na próxima etapa.</p>
@@ -372,6 +373,7 @@ function Checkout({ userId, defaultName, defaultEmail }: { userId: string; defau
             void navigate({ to: '/pedidos/$orderId', params: { orderId } })
           }}
           requestQuote={() => api.quotes.create(network)}
+          returnFocusRef={reviewButtonRef}
         />
       ) : null}
     </div>

@@ -25,6 +25,8 @@ interface Props {
   placeOrder: ReturnType<typeof usePlaceOrder>
   onPlaced: (orderId: string) => void
   requestQuote: () => Promise<Quote>
+  /** Elemento que recebe o foco ao fechar (o diálogo é aberto pelo envio do formulário). */
+  returnFocusRef?: React.RefObject<HTMLElement | null>
 }
 
 /** Diferenças entre duas cotações, em linguagem do usuário. */
@@ -42,7 +44,7 @@ function diffQuotes(before: Quote, after: Quote): string[] {
   return changes
 }
 
-export function ReviewDialog({ open, onOpenChange, network, wallet, collector, placeOrder, onPlaced, requestQuote }: Props) {
+export function ReviewDialog({ open, onOpenChange, network, wallet, collector, placeOrder, onPlaced, requestQuote, returnFocusRef }: Props) {
   const [quote, setQuote] = useState<Quote | null>(null)
   const [loading, setLoading] = useState(false)
   const [loadError, setLoadError] = useState<string>()
@@ -143,6 +145,11 @@ export function ReviewDialog({ open, onOpenChange, network, wallet, collector, p
         className="max-w-xl max-sm:top-auto max-sm:bottom-0 max-sm:max-h-[92dvh] max-sm:w-full max-sm:translate-y-0 max-sm:rounded-b-none max-sm:left-0 max-sm:translate-x-0"
         onEscapeKeyDown={(e) => busy && e.preventDefault()}
         onInteractOutside={(e) => busy && e.preventDefault()}
+        onCloseAutoFocus={(e) => {
+          if (!returnFocusRef?.current?.isConnected) return
+          e.preventDefault()
+          returnFocusRef.current.focus()
+        }}
         data-testid="review-dialog"
       >
         <DialogHeader>
