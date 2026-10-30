@@ -142,6 +142,8 @@
     color-scheme: dark;
     -webkit-text-size-adjust: 100%;
     scroll-padding-top: 5rem;
+    /* evita que o foco/rolagem fique escondido sob a barra inferior fixa (mobile) */
+    scroll-padding-bottom: 5rem;
   }
   body {
     background: var(--background);

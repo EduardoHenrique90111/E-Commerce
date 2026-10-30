@@ -117,6 +117,7 @@ const profileRoute = createRoute({
 const walletsRoute = createRoute({
   getParentRoute: () => accountLayout,
   path: '/perfil/carteiras',
+  validateSearch: (raw: Record<string, unknown>): { from?: 'checkout' } => (raw.from === 'checkout' ? { from: 'checkout' } : {}),
   component: lazyRouteComponent(() => import('@/features/account/wallets-page'), 'WalletsPage'),
 })
 

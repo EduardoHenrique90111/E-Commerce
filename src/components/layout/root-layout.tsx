@@ -11,6 +11,14 @@ import { RealtimeBridge } from './realtime-bridge'
 import { SessionWatcher } from './session-watcher'
 
 const MockDevtools = env.mocksEnabled && env.mockDevtools ? lazy(() => import('@/mocks/devtools/mock-devtools')) : null
+/** Os testes de regressão visual ocultam o painel (localStorage "kurio:mock:devtools" = "off"). */
+const devtoolsHidden = () => {
+  try {
+    return localStorage.getItem('kurio:mock:devtools') === 'off'
+  } catch {
+    return false
+  }
+}
 
 export function RootLayout() {
   return (
@@ -33,7 +41,7 @@ export function RootLayout() {
       <SessionWatcher />
       <RealtimeBridge />
       <ScrollRestoration />
-      {MockDevtools ? (
+      {MockDevtools && !devtoolsHidden() ? (
         <Suspense fallback={null}>
           <MockDevtools />
         </Suspense>

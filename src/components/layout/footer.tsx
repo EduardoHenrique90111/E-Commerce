@@ -81,9 +81,9 @@ export function Footer() {
   return (
     <footer className="mt-16 pb-20 md:pb-8">
       <div className="container-kurio">
-        <section aria-label="Por que colecionar na Kurio" className="grid gap-6 rounded-t-lg bg-surface p-6 md:grid-cols-[repeat(3,1fr)_1.2fr] md:divide-x md:divide-primary/30">
+        <section aria-label="Por que colecionar na Kurio" className="grid grid-cols-1 gap-6 rounded-t-lg bg-surface p-6 sm:grid-cols-2 lg:grid-cols-[repeat(3,1fr)_1.2fr] lg:divide-x lg:divide-primary/30">
           {FEATURES.map(({ icon: Icon, title, text, id }) => (
-            <div key={title} id={id} className="flex flex-col gap-2 md:pr-6 md:not-first:pl-6 scroll-mt-24">
+            <div key={title} id={id} className="flex scroll-mt-24 flex-col gap-2 lg:pr-6 lg:not-first:pl-6">
               <span className="flex size-10 items-center justify-center rounded-full bg-primary text-primary-foreground" aria-hidden="true">
                 <Icon size={18} />
               </span>
@@ -91,7 +91,7 @@ export function Footer() {
               <p className="text-[0.6875rem] leading-relaxed text-muted-foreground">{text}</p>
             </div>
           ))}
-          <div className="md:pl-6">
+          <div className="lg:pl-6">
             <Newsletter />
           </div>
         </section>

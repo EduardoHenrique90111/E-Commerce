@@ -27,7 +27,7 @@ const MAIN_SIZES = '(min-width: 1024px) 420px, (min-width: 768px) 45vw, 92vw'
 
 function DetailSkeleton() {
   return (
-    <div className="grid gap-8 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]" data-testid="nft-detail-skeleton" aria-busy="true" aria-label="Carregando NFT">
+    <div className="grid grid-cols-1 gap-8 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]" data-testid="nft-detail-skeleton" aria-busy="true" aria-label="Carregando NFT">
       <div className="flex gap-3">
         <div className="hidden w-16 flex-col gap-3 md:flex">
           {Array.from({ length: 4 }, (_, i) => (
@@ -166,8 +166,8 @@ function NftDetailContent({ nft }: { nft: NftDetail }) {
 
   return (
     <>
-      <article className="grid gap-8 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]" data-testid="nft-detail" aria-labelledby="nft-title">
-        <div className="flex flex-col-reverse gap-3 md:flex-row">
+      <article className="grid grid-cols-1 gap-8 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]" data-testid="nft-detail" aria-labelledby="nft-title">
+        <div className="flex flex-col-reverse gap-3 md:flex-row md:items-start">
           <div className="flex gap-2 md:w-16 md:flex-col" role="group" aria-label="Galeria de imagens">
             {nft.gallery.map((img, i) => (
               <button
@@ -176,14 +176,16 @@ function NftDetailContent({ nft }: { nft: NftDetail }) {
                 onClick={() => setImageIndex(i)}
                 aria-pressed={i === imageIndex}
                 aria-label={`Mostrar imagem ${i + 1} de ${nft.gallery.length}`}
-                className={cn('w-16 shrink-0 overflow-hidden rounded-md border-2 border-transparent focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none', i === imageIndex && 'border-primary')}
+                className={cn('w-16 shrink-0 overflow-hidden rounded-md border-2 border-transparent [&_img]:rounded-sm focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none', i === imageIndex && 'border-primary')}
               >
                 <NftImage image={img} sizes="64px" decorative />
               </button>
             ))}
           </div>
-          <div className="relative flex-1 rounded-lg bg-surface p-3">
-            <NftImage image={image} sizes={MAIN_SIZES} priority={imageIndex === 0} />
+          <div className="relative flex-1 self-start overflow-hidden rounded-lg bg-surface p-3">
+            <div className="overflow-hidden rounded-md">
+              <NftImage image={image} sizes={MAIN_SIZES} priority={imageIndex === 0} />
+            </div>
             <FavoriteButton nftId={nft.id} name={nft.name} variant="overlay" className="absolute top-5 right-5 md:hidden" />
           </div>
         </div>

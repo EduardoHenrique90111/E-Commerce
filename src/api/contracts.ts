@@ -91,6 +91,8 @@ export const imageSchema = z.object({
   /** Caminho base sem tamanho; o cliente monta o srcset com -320/-640/-960.webp */
   base: z.string(),
   alt: z.string(),
+  /** Enquadramento opcional (galeria): zoom e ponto focal em % */
+  crop: z.object({ zoom: z.number().min(1).max(3), x: z.number().min(0).max(100), y: z.number().min(0).max(100) }).optional(),
 })
 export type NftImage = z.infer<typeof imageSchema>
 

@@ -77,9 +77,6 @@ export function toSummary(nft: NftRecord): NftSummary {
 
 export function toDetail(nft: NftRecord): NftDetail {
   const summary = toSummary(nft)
-  const siblings = Object.values(getDb().nfts)
-    .filter((n) => n.collection === nft.collection && n.id !== nft.id)
-    .slice(0, 3)
   return {
     ...summary,
     description: nft.description,
@@ -91,7 +88,9 @@ export function toDetail(nft: NftRecord): NftDetail {
     editions: nft.editions.map((e) => ({ ...e })),
     gallery: [
       summary.image,
-      ...siblings.map((s) => ({ base: imageBase(s.id), alt: `Variação da coleção: ${s.name}` })),
+      { base: imageBase(nft.id), alt: `Detalhe do rosto de ${nft.name}.`, crop: { zoom: 1.9, x: 50, y: 38 } },
+      { base: imageBase(nft.id), alt: `Detalhe da roupa e acessórios de ${nft.name}.`, crop: { zoom: 1.7, x: 50, y: 88 } },
+      { base: imageBase(nft.id), alt: `Detalhe do fundo e da textura de ${nft.name}.`, crop: { zoom: 2.2, x: 12, y: 15 } },
     ],
     maxPerOrder: MAX_PER_ORDER,
   }

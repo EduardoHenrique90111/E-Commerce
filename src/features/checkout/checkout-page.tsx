@@ -197,7 +197,7 @@ function Checkout({ userId, defaultName, defaultEmail }: { userId: string; defau
         </Alert>
       ) : null}
 
-      <form ref={formRef} onSubmit={onReview} noValidate className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_360px]" aria-label="Dados de pagamento">
+      <form ref={formRef} onSubmit={onReview} noValidate className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_360px]" aria-label="Dados de pagamento">
         <div className="flex flex-col gap-6">
           <section aria-labelledby="collector-title" className="flex flex-col gap-4">
             <h2 id="collector-title" className="text-sm font-bold">
@@ -393,7 +393,7 @@ function SummaryPlaceholder() {
 
 function CheckoutSkeleton() {
   return (
-    <div className="container-kurio grid gap-6 pt-8 lg:grid-cols-[minmax(0,1fr)_360px]" aria-busy="true" aria-label="Carregando pagamento">
+    <div className="container-kurio grid grid-cols-1 gap-6 pt-8 lg:grid-cols-[minmax(0,1fr)_360px]" aria-busy="true" aria-label="Carregando pagamento">
       <div className="flex flex-col gap-4">
         <Skeleton className="h-5 w-48" />
         <div className="grid gap-4 sm:grid-cols-2">

@@ -53,7 +53,7 @@ export function CartPage() {
       ) : cart.data && cart.data.items.length === 0 ? (
         <EmptyCart />
       ) : cart.data ? (
-        <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
           <CartItems cart={cart.data} quote={quote.data} />
           <CartSummary cart={cart.data} quote={quote.data} quoteLoading={quote.isPending || (quote.isFetching && !quote.data)} quoteError={quote.error} onRetry={() => void quote.refetch()} />
         </div>
@@ -81,7 +81,7 @@ function EmptyCart() {
 
 function CartSkeleton() {
   return (
-    <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px]" aria-busy="true" aria-label="Carregando carrinho" data-testid="cart-skeleton">
+    <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_320px]" aria-busy="true" aria-label="Carregando carrinho" data-testid="cart-skeleton">
       <div className="flex flex-col gap-3">
         {Array.from({ length: 3 }, (_, i) => (
           <Skeleton key={i} className="h-20 w-full" />

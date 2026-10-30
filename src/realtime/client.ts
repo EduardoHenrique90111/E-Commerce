@@ -114,11 +114,13 @@ export class RealtimeClient {
     if (event.version <= known) return
     this.versions.set(resourceKey, event.version)
 
-    if (event.type === 'nft.updated') {
-      if (applyNftUpdated(this.qc, event)) emitNotice({ kind: 'nft', event })
-    } else if (applyOrderUpdated(this.qc, event, this.userId)) {
-      emitNotice({ kind: 'order', event })
-    }
+    const applied = event.type === 'nft.updated' ? applyNftUpdated(this.qc, event) : applyOrderUpdated(this.qc, event, this.userId)
+    if (!applied) return
+    emitNotice(event.type === 'nft.updated' ? { kind: 'nft', event } : { kind: 'order', event })
+    // observabilidade (diagnóstico e testes): quantos eventos foram efetivamente aplicados
+    const root = document.documentElement
+    root.dataset.realtimeApplied = String(Number(root.dataset.realtimeApplied ?? 0) + 1)
+    root.dataset.realtimeLastEvent = event.id
   }
 
   /** Após reconectar: eventos podem ter sido perdidos → revalida os recursos ativos via REST. */

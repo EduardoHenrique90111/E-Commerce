@@ -155,7 +155,7 @@ export function CatalogSection({ search, onChange, interactive = true }: Props) 
       <h2 id="catalog-title" className="sr-only">
         Catálogo de NFTs
       </h2>
-      <div className="grid gap-6 lg:grid-cols-[220px_1fr]">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-[220px_minmax(0,1fr)]">
         <div className="hidden flex-col gap-6 lg:flex">
           <div className="rounded-lg bg-surface p-4">
             <FiltersPanel search={search} facets={data?.facets} onChange={onChange} idPrefix="side" />
@@ -180,7 +180,7 @@ export function CatalogSection({ search, onChange, interactive = true }: Props) 
                       type="button"
                       aria-pressed={active}
                       onClick={() => onChange({ sort: value === 'relevance' ? undefined : value, page: undefined })}
-                      className={cn('border-b-2 border-transparent pb-1 font-semibold text-muted-foreground hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none', active && 'border-primary text-primary')}
+                      className={cn('border-b-2 border-transparent pb-1 font-semibold whitespace-nowrap text-muted-foreground hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none', active && 'border-primary text-primary')}
                     >
                       {label}
                     </button>

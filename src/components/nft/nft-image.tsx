@@ -25,6 +25,7 @@ export function NftImage({ image, sizes, className, priority, decorative }: Prop
       decoding={priority ? 'sync' : 'async'}
       fetchPriority={priority ? 'high' : 'auto'}
       className={cn('aspect-square h-auto w-full rounded-md bg-surface-2 object-cover', className)}
+      style={image.crop ? { objectPosition: `${image.crop.x}% ${image.crop.y}%`, transform: `scale(${image.crop.zoom})`, transformOrigin: `${image.crop.x}% ${image.crop.y}%` } : undefined}
     />
   )
 }
