@@ -61,48 +61,28 @@ usa as versões publicadas no npm; o `package-lock.json` é gerado no primeiro `
 | Item | Status | Observações |
 | --- | --- | --- |
 | Typecheck | ✅ | sem erros |
-| E2E Playwright desktop + mobile | ✅ | 114 passaram, 2 ignorados de propósito (30/10) |
-| Regressão visual (início, detalhe, carrinho, pagamento) | ✅ | 8 baselines, estáveis |
-| CLS | ✅ | 0 em início e detalhe (desktop e mobile) |
-| Lighthouse | 🟡 | medições em andamento; script `scripts/lighthouse.mjs` ⏳ |
-| ESLint (flat config) | ⏳ | `eslint.config.js` |
-| README / ARCHITECTURE / docs/API.md / docs/GUIA-WINDOWS.md | ⏳ | |
-| ZIP final | ⏳ | |
+| E2E Playwright desktop + mobile | ✅ | ver rodada final abaixo |
+| Regressão visual (início, detalhe, carrinho, pagamento) | ✅ | 8 baselines estáveis |
+| CLS | ✅ | 0 em todas as medições Lighthouse |
+| Lighthouse | ✅ | `scripts/lighthouse.mjs`, configs versionadas, relatórios em `lighthouse/reports`, análise em `lighthouse/README.md` |
+| ESLint (flat config) | ✅ | núcleo verificado localmente; plugins verificados por buscas dirigidas (sem acesso ao npm aqui) |
+| README / ARCHITECTURE / docs/API.md / docs/GUIA-WINDOWS.md | ✅ | |
+| ZIP final | ✅ | `kurio-entrega.zip` (gerado de `git archive` + relatórios) |
 
-### Lighthouse — medições parciais (30/10, build otimizado, cenário padrão)
+### Lighthouse — medianas finais (30/10, 3 medições por página/perfil)
 
-| Página | Perfil | Perf | A11y | BP | SEO |
-| --- | --- | --- | --- | --- | --- |
-| Início | mobile | 77–80 | 100 | 100 | 100 |
-| Início | desktop | 99 | 100 | 100 | 100 |
-| Detalhe | mobile | 74–78 | 100 | 100 | 100 |
-| Detalhe | desktop | 95–99 | 100 | 100 | 100 |
+| Página | Perfil | Perf | A11y | BP | SEO | LCP | TBT | CLS |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Início | mobile | 75 | 100 | 100 | 100 | 3,81 s | 457 ms | 0 |
+| Detalhe | mobile | 73 | 100 | 100 | 100 | 3,78 s | 539 ms | 0 |
+| Início | desktop | 100 | 100 | 100 | 100 | 0,80 s | 32 ms | 0 |
+| Detalhe | desktop | 99 | 100 | 100 | 100 | 0,93 s | 49 ms | 0 |
 
-Otimizações aplicadas: handler de passagem para recursos não-API no MSW, Axios sem cookies,
-renderização adiada (useDeferredValue) das listas, montagem inicial como transição, socket e painel
-de simulação carregados quando ocioso, filtros laterais só no desktop, correção de CLS no detalhe.
+Performance mobile abaixo de 90: causas e otimizações documentadas em `lighthouse/README.md`.
 
-## Ponto de retomada (sessão interrompida em 30/10, ~04h10)
+## Pendências para o usuário
 
-Feito nesta sessão (tudo commitado): otimizações de performance e CLS, baselines visuais atualizadas,
-E2E 114/116 ok (2 ignorados de propósito), `eslint.config.js`, `scripts/lighthouse.mjs` (cada medição
-em processo isolado, com timeout e nova tentativa) e configs versionadas em `lighthouse/`.
-`vercel.json` sem `installCommand` (a Vercel detecta o lockfile).
-
-Lint: verificado localmente só o núcleo do ESLint (regras recomendadas) + buscas dirigidas por
-padrões do typescript-eslint e do jsx-a11y — sem problemas. Os plugins não existem offline aqui.
-
-## Próximos passos (na ordem)
-
-1. Auditoria final: `/home/claude/localdev/lh-audit.sh` (≈10 min) com a máquina SEM outra carga
-   (typecheck/testes em paralelo inflam o TBT). Na última tentativa, início mobile ficou em 69–73
-   (TBT 488–695 ms) vs. 77–80 em medições avulsas — investigar a variação antes de fechar os números.
-   Depois escrever `lighthouse/README.md` com análise: LCP mobile = 1º card do catálogo (depende de
-   JS + MSW + API), ~270 KB br de JS da stack obrigatória + camada de mocks no navegador, throttling
-   simulado; métricas observadas sem throttling (FCP ≈ 0,5 s, LCP ≈ 1,0 s).
-2. Documentação: README.md (setup, variáveis, credenciais ana/bruno/carla — Kurio@123/456/789,
-   cupons KURIO10/LANCAMENTO/BOASVINDAS/EXPIRADO, cenários `?scenario=`/`&reset=1`/painel, comandos,
-   como reproduzir cada falha), docs/GUIA-WINDOWS.md, ARCHITECTURE.md (contratos, sessão, carrinho,
-   cache/retries, reconciliação REST↔Socket.IO, limitações do MSW, decisões de UX, desvios do layout,
-   pontos de extensão de segurança: `src/session/token-store.ts`, headers em `vercel.json`), docs/API.md.
-3. Rodada final: typecheck, E2E, visual; commit; ZIP (sem node_modules/dist/test-results) + envio.
+1. `npm install` (gera o `package-lock.json`, que deve ser versionado junto).
+2. `npm run lint` na máquina com os plugins instalados (aqui só foi possível verificar parcialmente).
+3. Deploy (Vercel recomendado) e, opcionalmente, `npm run lighthouse -- --url=<URL publicada>`.
+4. Endurecimento de segurança (ver ARCHITECTURE.md §16).
