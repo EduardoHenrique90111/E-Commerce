@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react'
-import { Outlet, ScrollRestoration } from '@tanstack/react-router'
+import { Outlet } from '@tanstack/react-router'
 import { Toaster } from '@/components/ui/sonner'
 import { env } from '@/env'
 import { Footer } from './footer'
@@ -40,7 +40,6 @@ export function RootLayout() {
       <LiveAnnouncer />
       <SessionWatcher />
       <RealtimeBridge />
-      <ScrollRestoration />
       {MockDevtools && !devtoolsHidden() ? (
         <Suspense fallback={null}>
           <MockDevtools />

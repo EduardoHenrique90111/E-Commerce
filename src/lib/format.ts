@@ -1,21 +1,31 @@
 import type { CatalogSort, CollectionSlug, Network, OrderStatus, WalletProvider } from '@/api/contracts'
 
-/** Formata micro-ETH como no Figma ("1.10 ETH"). */
+/**
+ * Formata micro-ETH como no Figma ("1.10 ETH"): mínimo de 2 casas e até 6 (precisão total do
+ * micro-ETH), calculado com inteiros para não perder centavos por arredondamento de ponto flutuante.
+ */
 export function formatEth(micro: number, options: { decimals?: number; withUnit?: boolean } = {}): string {
   const { withUnit = true } = options
-  const value = micro / 1_000_000
-  // 2 casas por padrão; até 4 quando necessário para não perder precisão (taxas)
-  let decimals = options.decimals ?? 2
-  if (options.decimals === undefined) {
-    while (decimals < 4 && Math.round(value * 10 ** decimals) / 10 ** decimals !== value) decimals++
+  const negative = micro < 0
+  const abs = Math.abs(Math.round(micro))
+  const whole = Math.floor(abs / 1_000_000)
+  let frac = String(abs % 1_000_000).padStart(6, '0')
+  if (options.decimals !== undefined) {
+    const factor = 10 ** (6 - options.decimals)
+    const rounded = Math.round(abs / factor) * factor
+    const w = Math.floor(rounded / 1_000_000)
+    const f = String(rounded % 1_000_000).padStart(6, '0').slice(0, options.decimals)
+    const text = `${negative ? '-' : ''}${w}${options.decimals ? `.${f}` : ''}`
+    return withUnit ? `${text} ETH` : text
   }
-  const text = value.toFixed(decimals)
+  frac = frac.replace(/0+$/, '').padEnd(2, '0')
+  const text = `${negative ? '-' : ''}${whole}.${frac}`
   return withUnit ? `${text} ETH` : text
 }
 
 /** Versão para leitores de tela (ex.: "1,10 ether"). */
 export function spokenEth(micro: number): string {
-  return `${(micro / 1_000_000).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 4 })} ether`
+  return `${(micro / 1_000_000).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 6 })} ether`
 }
 
 export function ethToMicro(eth: number): number {

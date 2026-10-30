@@ -52,13 +52,18 @@ export function ReviewDialog({ open, onOpenChange, network, wallet, collector, p
   const [submitError, setSubmitError] = useState<string>()
   const quoteRef = useRef<Quote | null>(null)
   quoteRef.current = quote
+  // referências estáveis: re-renderizações do pai não podem refazer a cotação nem limpar o estado
+  const requestQuoteRef = useRef(requestQuote)
+  requestQuoteRef.current = requestQuote
+  const busyRef = useRef(false)
+  busyRef.current = placeOrder.isBusy || placeOrder.phase === 'done'
 
   const fetchQuote = useCallback(
     async (previous: Quote | null) => {
       setLoading(true)
       setLoadError(undefined)
       try {
-        const next = await requestQuote()
+        const next = await requestQuoteRef.current()
         setQuote(next)
         setStale(null)
         setAccept(false)
@@ -73,7 +78,7 @@ export function ReviewDialog({ open, onOpenChange, network, wallet, collector, p
         setLoading(false)
       }
     },
-    [requestQuote],
+    [],
   )
 
   // revalida preço, disponibilidade, cupom e taxas ao abrir a revisão
@@ -93,7 +98,7 @@ export function ReviewDialog({ open, onOpenChange, network, wallet, collector, p
   useEffect(() => {
     if (!open) return
     return onRealtimeNotice((notice) => {
-      if (notice.kind !== 'nft') return
+      if (notice.kind !== 'nft' || busyRef.current) return // durante o envio o servidor revalida a cotação
       const q = quoteRef.current
       const line = q?.items.find((i) => i.nftId === notice.event.data.nftId)
       if (!line) return

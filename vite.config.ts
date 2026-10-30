@@ -10,7 +10,7 @@ export default defineConfig({
     alias: { '@': path.resolve(import.meta.dirname, './src') },
   },
   server: { port: 5173 },
-  preview: { port: 4173 },
+  preview: { port: 4173, strictPort: true },
   build: {
     target: 'es2022',
     sourcemap: true,

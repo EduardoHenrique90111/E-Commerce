@@ -20,7 +20,8 @@ export function FavoriteButton({ nftId, name, variant = 'icon', className }: Pro
   const navigate = useNavigate()
   const href = useRouterState({ select: (s) => s.location.href })
   const active = !!favorites.data?.ids.includes(nftId)
-  const label = active ? `Remover ${name} dos favoritos` : `Favoritar ${name}`
+  // botão de alternância: rótulo constante e estado em aria-pressed
+  const label = `Favoritar ${name}`
 
   const onClick = () => {
     if (!isAuthenticated) {
@@ -32,7 +33,7 @@ export function FavoriteButton({ nftId, name, variant = 'icon', className }: Pro
 
   if (variant === 'full') {
     return (
-      <Button type="button" variant="outline" onClick={onClick} aria-pressed={active} className={className}>
+      <Button type="button" variant="outline" onClick={onClick} aria-pressed={active} aria-label={label} className={className}>
         <Heart size={16} fill={active ? 'currentColor' : 'none'} />
         {active ? 'Favoritado' : 'Favoritar'}
       </Button>
@@ -44,7 +45,7 @@ export function FavoriteButton({ nftId, name, variant = 'icon', className }: Pro
       onClick={onClick}
       aria-pressed={active}
       aria-label={label}
-      title={label}
+      title={active ? `Remover ${name} dos favoritos` : label}
       className={cn(
         'inline-flex size-9 items-center justify-center rounded-full transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none',
         variant === 'overlay' ? 'bg-background/80 text-foreground backdrop-blur hover:bg-background' : 'border border-border bg-surface hover:bg-surface-2',

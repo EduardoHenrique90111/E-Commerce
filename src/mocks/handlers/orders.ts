@@ -49,12 +49,13 @@ export const orderHandlers = [
 
     // cenários: mudança de preço ou esgotamento durante a compra (refletidos via REST e evento)
     const first = quote.lines[0]
-    if (first && config.priceChangeOnOrder && !db.counters[`priceChange:${quote.quoteId}`]) {
-      db.counters[`priceChange:${quote.quoteId}`] = 1
+    // uma única vez por usuário: a nova confirmação com os valores atualizados deve funcionar
+    if (first && config.priceChangeOnOrder && !db.counters[`priceChange:${auth.user.id}`]) {
+      db.counters[`priceChange:${auth.user.id}`] = 1
       updateNftEditions(first.nftId, [{ editionId: first.editionId, price: Math.round(first.unitPrice * 1.12) }])
     }
-    if (first && config.soldOutOnOrder && !db.counters[`soldOut:${quote.quoteId}`]) {
-      db.counters[`soldOut:${quote.quoteId}`] = 1
+    if (first && config.soldOutOnOrder && !db.counters[`soldOut:${auth.user.id}`]) {
+      db.counters[`soldOut:${auth.user.id}`] = 1
       updateNftEditions(first.nftId, [{ editionId: first.editionId, available: 0 }])
     }
 

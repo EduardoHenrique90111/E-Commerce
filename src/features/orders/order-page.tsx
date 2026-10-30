@@ -143,7 +143,7 @@ function Receipt({ order }: { order: Order }) {
         ].map(([k, v]) => (
           <div key={k} className="bg-surface px-3 py-2">
             <dt className="text-[0.6875rem] text-muted-foreground">{k}</dt>
-            <dd className="font-semibold break-words" data-testid={`receipt-${k.toLowerCase()}`}>
+            <dd className="font-semibold break-words" data-testid={`receipt-info-${k.toLowerCase()}`}>
               {v}
             </dd>
           </div>
