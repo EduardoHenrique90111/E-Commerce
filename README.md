@@ -19,6 +19,9 @@ sem backend, blockchain, extensão de carteira ou gateway de pagamento reais.
 | Testes E2E e regressão visual | Playwright |
 | Auditoria de performance e qualidade | Lighthouse 13 |
 
+**Demonstração publicada:** https://e-commerce-zeta-six-24.vercel.app · **Repositório:**
+https://github.com/EduardoHenrique90111/E-Commerce
+
 **Documentação:** [ARCHITECTURE.md](ARCHITECTURE.md) (decisões, sessão, carrinho, cache, tempo real,
 limitações, desvios do layout) · [docs/API.md](docs/API.md) (contratos REST e eventos) ·
 [docs/GUIA-WINDOWS.md](docs/GUIA-WINDOWS.md) (passo a passo no Windows) ·

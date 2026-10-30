@@ -23,7 +23,7 @@ usa as versões publicadas no npm; o `package-lock.json` é gerado no primeiro `
 | Fonte auto-hospedada (JetBrains Mono) | ✅ | `public/fonts` |
 | Arte substituta (retratos originais) | ✅ | `scripts/generate-art.mjs` → `public/images/nfts/*.webp` |
 | Fixtures determinísticas | ✅ | `scripts/generate-catalog.mjs`, `src/mocks/fixtures/*` |
-| Deploy | 🟡 | `vercel.json`, `public/_redirects`; publicação feita pelo usuário |
+| Deploy | ✅ | Vercel: https://e-commerce-zeta-six-24.vercel.app · repositório https://github.com/EduardoHenrique90111/E-Commerce |
 
 ## Dados, estado e tempo real
 
@@ -82,7 +82,7 @@ Performance mobile abaixo de 90: causas e otimizações documentadas em `lightho
 
 ## Pendências para o usuário
 
-1. `npm install` (gera o `package-lock.json`, que deve ser versionado junto).
-2. `npm run lint` na máquina com os plugins instalados (aqui só foi possível verificar parcialmente).
-3. Deploy (Vercel recomendado) e, opcionalmente, `npm run lighthouse -- --url=<URL publicada>`.
+1. ~~`npm install` / lockfile~~ — feito (lockfile versionado).
+2. ~~`npm run lint`~~ — feito: 0 erros e 0 avisos.
+3. ~~Deploy~~ — feito; opcional: `npm run lighthouse -- --url=https://e-commerce-zeta-six-24.vercel.app`.
 4. Endurecimento de segurança (ver ARCHITECTURE.md §16).
