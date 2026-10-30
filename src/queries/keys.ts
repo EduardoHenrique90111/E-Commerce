@@ -15,7 +15,7 @@ export const qk = {
   related: (id: string) => ['nfts', 'related', id] as const,
   cartAll: ['cart'] as const,
   cart: (owner: string) => ['cart', owner] as const,
-  quote: (owner: string, network: Network, cartVersion: number) => ['cart', owner, 'quote', network, cartVersion] as const,
+  quote: (owner: string, network: Network, cartFingerprint: string) => ['cart', owner, 'quote', network, cartFingerprint] as const,
   user: (userId: string) => ['user', userId] as const,
   favorites: (userId: string) => ['user', userId, 'favorites'] as const,
   profile: (userId: string) => ['user', userId, 'profile'] as const,

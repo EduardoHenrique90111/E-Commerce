@@ -1,5 +1,5 @@
 import { expect, test, USERS } from './fixtures'
-import { acceptAndConfirm, openReview, orderCount } from './checkout-helpers'
+import { acceptAndConfirm, openReview } from './checkout-helpers'
 
 test.describe('Compra completa', () => {
   test('do catálogo ao recibo confirmado, com snapshot imutável do pedido', async ({ kurio, page }) => {

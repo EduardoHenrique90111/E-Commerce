@@ -94,11 +94,12 @@ export function useRemoveCoupon() {
   })
 }
 
-/** Cotação do resumo do carrinho (recalculada a cada nova versão do carrinho). */
+/** Cotação do resumo do carrinho (recalculada a cada nova versão do carrinho ou dos NFTs nele). */
 export function useCartQuote(cart: Cart | undefined, network: Network = 'ethereum') {
   const owner = useCartOwner()
   return useQuery({
-    queryKey: qk.quote(owner, network, cart?.version ?? 0),
+    // a cotação depende da versão do carrinho e das versões (preço/estoque) de cada NFT
+    queryKey: qk.quote(owner, network, cart ? `${cart.version}:${cart.items.map((i) => `${i.lineId}@${i.nftVersion}`).join(',')}` : 'empty'),
     queryFn: ({ signal }) => api.quotes.create(network, { signal }),
     enabled: !!cart && cart.items.length > 0,
     staleTime: 15_000,
