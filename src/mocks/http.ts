@@ -35,7 +35,7 @@ const STATUS: Record<ErrorCode, number> = {
 export function apiError(
   code: ErrorCode,
   message: string,
-  extra: { fieldErrors?: Record<string, string>; details?: unknown; status?: number } = {},
+  extra: { fieldErrors?: Record<string, string>; details?: unknown; status?: number; headers?: Record<string, string> } = {},
 ) {
   const status = extra.status ?? STATUS[code]
   const body: ApiErrorBody = {
@@ -47,7 +47,7 @@ export function apiError(
       retryable: status >= 500 || status === 429,
     },
   }
-  return HttpResponse.json(body, { status })
+  return HttpResponse.json(body, { status, headers: extra.headers })
 }
 
 /** Valida o corpo com o schema do contrato; devolve os dados ou uma resposta 422. */

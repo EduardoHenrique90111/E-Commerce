@@ -85,4 +85,13 @@ Performance mobile abaixo de 90: causas e otimizações documentadas em `lightho
 1. ~~`npm install` / lockfile~~ — feito (lockfile versionado).
 2. ~~`npm run lint`~~ — feito: 0 erros e 0 avisos.
 3. ~~Deploy~~ — feito; opcional: `npm run lighthouse -- --url=https://e-commerce-zeta-six-24.vercel.app`.
-4. Endurecimento de segurança (ver ARCHITECTURE.md §16).
+4. ~~Segurança~~ — feito em 30/10 (ver abaixo).
+
+## Segurança (30/10, noite)
+
+| Item | Status |
+| --- | --- |
+| CSP restritiva + HSTS, X-Frame-Options, nosniff, Referrer-Policy, Permissions-Policy, COOP (`vercel.json`, `public/_headers`, `vite preview`) | ✅ |
+| Bloqueio temporário do login após 5 senhas erradas (429 + Retry-After) | ✅ |
+| `tests/e2e/security.spec.ts`: cabeçalhos, jornada sem violações de CSP, bloqueio de login | ✅ |
+| Documentação (ARCHITECTURE.md §16, README) | ✅ |

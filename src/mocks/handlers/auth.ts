@@ -41,6 +41,18 @@ function slugUsername(name: string): string {
   return candidate
 }
 
+/** Tentativas de login erradas permitidas antes do bloqueio temporário do e-mail. */
+export const MAX_LOGIN_FAILURES = 5
+export const LOGIN_LOCK_MS = 5 * 60_000
+
+function loginLocked(until: number) {
+  const seconds = Math.max(1, Math.ceil((until - Date.now()) / 1000))
+  const minutes = Math.ceil(seconds / 60)
+  return apiError('RATE_LIMITED', `Muitas tentativas de login. Por segurança, tente novamente em ${minutes} minuto(s).`, {
+    headers: { 'Retry-After': String(seconds) },
+  })
+}
+
 export const authHandlers = [
   http.post('/api/auth/register', async ({ request }) => {
     const net = await simulateNetwork(request)
@@ -77,10 +89,35 @@ export const authHandlers = [
     const parsed = await parseBody(request, loginRequestSchema)
     if (!parsed.ok) return parsed.response
     const db = getDb()
-    const user = Object.values(db.users).find((u) => u.email.toLowerCase() === parsed.data.email.toLowerCase())
+    const email = parsed.data.email.toLowerCase()
+    const failKey = `loginFail:${email}`
+    const lockKey = `loginLock:${email}`
+
+    // proteção contra força bruta: após várias senhas erradas, o e-mail fica bloqueado por alguns minutos
+    const lockedUntil = db.counters[lockKey] ?? 0
+    if (lockedUntil > Date.now()) return loginLocked(lockedUntil)
+
+    const user = Object.values(db.users).find((u) => u.email.toLowerCase() === email)
     // mesma mensagem para e-mail inexistente e senha errada (não revela contas)
     const valid = user ? await verifyPassword(parsed.data.password, user.password) : false
-    if (!user || !valid) return apiError('INVALID_CREDENTIALS', 'E-mail ou senha incorretos.')
+    if (!user || !valid) {
+      const failures = (db.counters[failKey] ?? 0) + 1
+      if (failures >= MAX_LOGIN_FAILURES) {
+        delete db.counters[failKey]
+        db.counters[lockKey] = Date.now() + LOGIN_LOCK_MS
+        persist()
+        return loginLocked(db.counters[lockKey])
+      }
+      db.counters[failKey] = failures
+      persist()
+      const left = MAX_LOGIN_FAILURES - failures
+      return apiError(
+        'INVALID_CREDENTIALS',
+        left <= 2 ? `E-mail ou senha incorretos. Restam ${left} tentativa(s) antes do bloqueio temporário.` : 'E-mail ou senha incorretos.',
+      )
+    }
+    delete db.counters[failKey]
+    delete db.counters[lockKey]
     const response = startSession(user)
     mergeGuestCart(guestCartId(request), user.id)
     return HttpResponse.json(response)

@@ -17,9 +17,15 @@ test.describe('Início — catálogo', () => {
     await page.getByLabel('Ordenar por:').selectOption('price-asc')
     await expect(page).toHaveURL(/sort=price-asc/)
     await expect(page).not.toHaveURL(/page=/)
-    const prices = await kurio.catalogCards().locator('[aria-hidden="true"]', { hasText: 'ETH' }).allInnerTexts()
-    const values = prices.map((p) => Number(p.replace(' ETH', '')))
-    expect(values).toEqual([...values].sort((a, b) => a - b))
+    // a grade mantém os resultados anteriores visíveis até a nova página chegar: aguarda a ordem nova
+    const shownPrices = async () =>
+      (await kurio.catalogCards().locator('[aria-hidden="true"]', { hasText: 'ETH' }).allInnerTexts()).map((p) => Number(p.replace(' ETH', '')))
+    await expect
+      .poll(async () => {
+        const values = await shownPrices()
+        return values.length === 12 && values.every((v, i) => i === 0 || values[i - 1] <= v)
+      })
+      .toBe(true)
 
     // filtros combinados: coleção + rede
     const filters = await kurio.filters()

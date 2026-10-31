@@ -172,7 +172,7 @@ npm run test:report
   sistema operacional, a renderização de texto difere: rode a regressão visual no contêiner oficial do
   Playwright (ver guia do Windows) ou gere baselines locais com `npm run test:visual:update`.
 
-Rodada final desta entrega (30/10/2026): **114 testes E2E e 8 de regressão visual passaram**; 2 casos são
+Rodada final desta entrega (30/10/2026), com a CSP ativa: **120 testes E2E e 8 de regressão visual passaram**; 2 casos são
 ignorados de propósito por viewport (navegação por teclado físico só no desktop; drawer de navegação só no
 mobile). O ZIP inclui o relatório HTML dessa rodada em `reports/playwright`.
 
@@ -181,7 +181,8 @@ login, expiração, logout e troca de usuário; favoritos com falha e rollback; 
 remoção, cupom, persistência após refresh/login); compra completa até o recibo; pagamento recusado,
 clique repetido e timeout com recuperação; perfil, avatar, senha e carteiras com erros; preço e
 disponibilidade via Socket.IO no checkout; eventos duplicados/antigos, desconexão e pedido pendente;
-teclado, foco de diálogos e formulários; skeletons, falha e nova tentativa; overflow em 320–1440 px.
+teclado, foco de diálogos e formulários; skeletons, falha e nova tentativa; overflow em 320–1440 px;
+cabeçalhos de segurança, ausência de violações de CSP e bloqueio de login por tentativas.
 
 ## Auditoria Lighthouse
 
@@ -233,12 +234,15 @@ service worker. Netlify/Cloudflare Pages: comando `npm run build:demo`, pasta `d
 
 ## Segurança
 
-O endurecimento do site contra invasão (CSP, cabeçalhos de segurança, política de armazenamento do
-token, etc.) é tratado à parte pelo responsável do projeto. Os pontos de extensão estão descritos em
-[ARCHITECTURE.md](ARCHITECTURE.md#segurança-pontos-de-extensão).
+Cabeçalhos de segurança em todas as respostas (CSP restritiva, HSTS, anti-clickjacking, nosniff,
+Referrer-Policy, Permissions-Policy e COOP), definidos em `vercel.json` e `public/_headers`. Também há
+bloqueio temporário do login após 5 senhas erradas, senhas só como hash, validação de todas as entradas e
+proteção contra redirecionamento aberto. Os testes `tests/e2e/security.spec.ts` verificam tudo isso com a
+CSP ativa. Detalhes, limites da demonstração e próximos passos com uma API real estão em
+[ARCHITECTURE.md](ARCHITECTURE.md#16-segurança).
 
 ## Assets
 
 As imagens dos NFTs são **retratos originais gerados por script** (`scripts/generate-art.mjs`) e a fonte
 é a JetBrains Mono auto-hospedada (`public/fonts`), substituindo os assets do arquivo de layout.
-Detalhes em [ARCHITECTURE.md](ARCHITECTURE.md#desvios-do-layout-e-substituição-de-assets).
+Detalhes em [ARCHITECTURE.md](ARCHITECTURE.md#15-desvios-do-layout-e-substituição-de-assets).

@@ -288,18 +288,41 @@ o resultado das operações (ex.: quantidade de pedidos criados no servidor simu
   (miniaturas abaixo da imagem principal).
 - Artigos do "Diário da Cunhagem" não têm página de destino (marcados "Em breve no Diário").
 
-## 16. Segurança (pontos de extensão)
+## 16. Segurança
 
-O endurecimento contra invasão é responsabilidade do dono do projeto. A aplicação já não guarda senhas
-(apenas hash PBKDF2 no servidor simulado), valida todas as entradas com zod, aceita só redirecionamentos
-internos e não usa `dangerouslySetInnerHTML`. Pontos para a camada de segurança:
+### Medidas aplicadas
 
-- `src/session/token-store.ts`: troque o `localStorage` por cookie `HttpOnly` + `SameSite` com uma API real
-  (nesse caso, ajuste `withCredentials` em `src/api/client.ts`).
-- `vercel.json` (e `public/_headers`, se usar Netlify/Cloudflare): cabeçalhos como CSP,
-  `Strict-Transport-Security`, `X-Content-Type-Options`, `Referrer-Policy` e `Permissions-Policy`. Uma CSP
-  precisa permitir o service worker do MSW (`worker-src 'self'`) enquanto os mocks estiverem ativos.
-- `src/api/client.ts`: interceptores para CSRF/assinatura de requisições, se o backend real exigir.
+| Camada | Medida | Onde |
+| --- | --- | --- |
+| Cabeçalhos HTTP | **Content-Security-Policy** restritiva: scripts só do próprio site (sem inline e sem `eval`), `object-src 'none'`, `base-uri` e `form-action` restritos, `frame-ancestors 'none'`, `worker-src 'self'` para o service worker do MSW | `vercel.json`, `public/_headers`, `vite preview` |
+| Cabeçalhos HTTP | `Strict-Transport-Security` (HTTPS obrigatório, 2 anos), `X-Frame-Options: DENY` (anti-clickjacking), `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy` (câmera, microfone, localização, pagamentos e USB desligados), `Cross-Origin-Opener-Policy: same-origin` | idem |
+| Autenticação | senhas só como hash PBKDF2-SHA-256 com sal; mesma mensagem para e-mail inexistente e senha errada (não revela contas); **bloqueio temporário de 5 minutos após 5 senhas erradas** por e-mail (`429` com `Retry-After`) | `src/mocks/handlers/auth.ts`, `src/mocks/crypto.ts` |
+| Sessão | token opaco com expiração (30 min), revogado no logout; expiração tratada na navegação e no checkout; logout e troca de usuário limpam dados privados, rascunhos e a conexão em tempo real | `src/session/*` |
+| Entradas | todos os formulários e corpos de requisição validados com zod no cliente e no servidor simulado; avatar limitado a PNG/JPG/WebP de até 2 MB e redimensionado no cliente | `src/api/contracts.ts` |
+| Saída | o React escapa todo o conteúdo; não há `dangerouslySetInnerHTML` | — |
+| Navegação | redirecionamento pós-login aceita apenas caminhos internos (evita *open redirect*) | `safeRedirect` em `src/session/session.ts` |
+| Transporte | API autenticada por `Authorization: Bearer`, sem cookies (`credentials: 'omit'`): não há superfície de CSRF | `src/api/client.ts` |
+| Isolamento | dados privados no cache por usuário; eventos de pedido só chegam ao dono | seções 5 e 9 |
+
+Os cabeçalhos ficam num único lugar (`vercel.json`); o `vite.config.ts` lê o mesmo arquivo e aplica a política
+ao `vite preview`, de modo que os testes E2E e a auditoria rodam com a CSP ativa. O servidor de
+desenvolvimento não recebe a CSP, porque o Fast Refresh do Vite injeta scripts inline.
+`tests/e2e/security.spec.ts` verifica os cabeçalhos, percorre catálogo, detalhe, login, tempo real e
+pagamento sem nenhuma violação de CSP e testa o bloqueio de login.
+
+`style-src` permite `'unsafe-inline'` porque o React aplica estilos por atributo `style` e a biblioteca de
+toasts injeta seu CSS; isso não permite execução de script. `img-src` aceita `data:`/`blob:` para o avatar.
+
+### Limites desta demonstração e próximos passos com uma API real
+
+- **Token no `localStorage`**: necessário aqui para a sessão sobreviver ao refresh sem servidor. Com uma API
+  real, troque `src/session/token-store.ts` por cookie `HttpOnly` + `Secure` + `SameSite=Strict` (e ajuste
+  `withCredentials` em `src/api/client.ts`, adicionando proteção CSRF). A CSP reduz o risco de XSS enquanto isso.
+- **Regras no navegador**: o "servidor" simulado roda no próprio navegador; em produção, validação, bloqueio
+  de tentativas e limites de requisição precisam estar no backend.
+- **Dependências**: rode `npm audit` periodicamente e mantenha o `package-lock.json` versionado.
+- Possíveis evoluções: `require-trusted-types-for 'script'` e um `report-to` para receber relatórios de
+  violação da CSP.
 
 ## 17. Limitações conhecidas
 
